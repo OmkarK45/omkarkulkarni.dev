@@ -14,6 +14,8 @@ import Container from '../components/Container';
 import BlogPostCard from '../components/BlogPostCard';
 import ProjectCard from 'components/ProjectCard';
 import { VideoLibrary, SocialMedia, Ecommerce } from 'components/Icons';
+import { Career, career } from 'data/work/career';
+import CareerCard from 'components/CareerCard';
 
 export default function Home({ videos }) {
   return (
@@ -136,6 +138,21 @@ export default function Home({ videos }) {
             <HiOutlineArrowNarrowRight className="h-6 w-6 ml-2" />
           </a>
         </Link>
+        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          Work Experience
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          My work experience so far.
+        </p>
+        <ul className="w-full space-y-2 divide-y divide-accent md:divide-y-0">
+          {career.map((c: Career, index) => (
+            <CareerCard
+              key={index}
+              last={index === career.length - 1}
+              career={c}
+            />
+          ))}
+        </ul>
         <span className="h-16" />
       </div>
     </Container>

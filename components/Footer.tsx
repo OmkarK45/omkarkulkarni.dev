@@ -4,7 +4,7 @@ import { HiHeart } from 'react-icons/hi';
 
 import NowPlaying from 'components/NowPlaying';
 
-const ExternalLink = ({ href, children }) => (
+export const ExternalLink = ({ href, children }) => (
   <a
     className="text-gray-500 hover:text-gray-600 transition cursor-newtab"
     target="_blank"
