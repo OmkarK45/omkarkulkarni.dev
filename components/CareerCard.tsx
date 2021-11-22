@@ -12,7 +12,7 @@ const CareerCard = ({
   last
 }: Props) => {
   return (
-    <li className="py-2">
+    <li className=" border border-gray-200 dark:border-gray-800 p-4 rounded-lg animate-scale">
       <div className="relative">
         {!last && (
           <span
@@ -29,11 +29,15 @@ const CareerCard = ({
           <div className="w-full">
             <div className="flex items-center justify-between">
               <ExternalLink href={url}>
-                <span className="text-lg font-medium">{title}</span>
+                <span className="text-lg font-medium text-gray-900 dark:text-gray-200">
+                  {title}
+                </span>
               </ExternalLink>
               <p className="text-sm text-secondary">{time}</p>
             </div>
-            <p className="mb-1.5 prose ">{description}</p>
+            <p className="mb-1.5 prose text-gray-600 dark:text-gray-300">
+              {description}
+            </p>
             <Labels labels={tech} variant="15" max={5} />
           </div>
         </div>

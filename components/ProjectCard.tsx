@@ -41,7 +41,7 @@ export default function ProjectCard({
 
   return (
     <a
-      className="mb-4 block w-full transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none"
+      className="mb-4 block w-full animate-scale"
       href={href}
       aria-label={title}
       target="_blank"

@@ -11,7 +11,7 @@ type Props = {
 const Label = ({ children, variant, small, className }: Props) => (
   <div
     className={clsx(
-      'text-xs rounded-md leading-5  inline-flex items-center bg-pink-200',
+      'text-xs rounded-md leading-5  inline-flex items-center bg-pink-200 dark:bg-pink-900',
       {
         'py-0.5 px-1.5 sm:px-2': !small,
         'py-0.5 px-1': small
