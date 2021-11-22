@@ -40,7 +40,7 @@ export const Labels = ({
 }: LabelsProps) => {
   const [show, setShow] = useState(false);
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center flex-wrap">
       {labels.slice(0, max).map((field) => (
         <span key={field}>
           <Label className="mr-2" small={small} variant={variant}>
