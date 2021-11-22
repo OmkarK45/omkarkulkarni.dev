@@ -46,6 +46,23 @@ const Blog = defineDocumentType(() => ({
   computedFields
 }));
 
+const Projects = defineDocumentType(() => ({
+  name: 'Projects',
+  filePathPattern: 'projects/*.mdx',
+  bodyType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    publishedAt: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    image: { type: 'string', required: true },
+    github: { type: 'string', required: true },
+    logo: { type: 'string', required: true },
+    link: { type: 'string', required: true },
+    slug: { type: 'string', required: true }
+  },
+  computedFields
+}));
+
 const Newsletter = defineDocumentType(() => ({
   name: 'Newsletter',
   filePathPattern: 'newsletter/*.mdx',
@@ -83,7 +100,7 @@ const OtherPage = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Newsletter, Snippet, OtherPage],
+  documentTypes: [Blog, Newsletter, Snippet, OtherPage, Projects],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

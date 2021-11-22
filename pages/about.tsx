@@ -12,37 +12,14 @@ export default function About() {
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
           <p>
-            Hey, I’m Lee. I'm a developer, writer, and the creator of&nbsp;
-            <a
-              href="https://masteringnextjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Mastering Next.js
-            </a>
-            &nbsp;and&nbsp;
-            <a
-              href="https://react2025.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              React 2025.
-            </a>
-            &nbsp;I work at ▲Vercel as the Head of Developer Relations.
+            Hello! I'm Omkar. I started learning web development in May 2020,
+            and I fell in love with it ever since.
           </p>
           <p>
-            I’ve spoken across the country at conferences and meet-ups about
-            front-end development, design, and recruiting. I write about
-            development, tech careers, and my personal life on&nbsp;
-            <Link href="/newsletter">
-              <a>my newsletter.</a>
-            </Link>
-          </p>
-          <p>
-            I grew up in small-town Iowa and went to school at Iowa State,
-            graduating with a degree in Computer Engineering. I spend my free
-            time playing music, creating videos, and enjoying time with friends
-            and family in Des Moines, IA.
+            I grew up in small-town and I'm pursuing my majors in Computer
+            Science. I spend my free time playing video games, and I'm a huge
+            cricket archivists with over 7TB of cricket videos collected over
+            the years.
           </p>
         </div>
         <Timeline />

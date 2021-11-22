@@ -1,5 +1,10 @@
 @tailwind base;
 @tailwind components;
+
+body {
+  @apply text-gray-900 bg-gray-100 dark:text-gray-100 dark:bg-gray-900 antialiased font-sans;
+  font-feature-settings: 'cv11', 'cv04';
+}
 @tailwind utilities;
 
 @font-face {
@@ -13,6 +18,9 @@
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
+}
+.cursor-newtab {
+  cursor: url('/static/images/new-tab.png') 10 10, pointer;
 }
 
 html {

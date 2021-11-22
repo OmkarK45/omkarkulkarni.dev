@@ -42,109 +42,74 @@ const Step = (props) => {
 
 const FullTimeline = () => (
   <>
-    <Divider />
-    <Year>2018</Year>
+    <Year>2020</Year>
     <ul>
-      <Step title="Started dsmtech.io 🤘🏻">
-        Reflecting on my recent job search, I realized there wasn't a
-        centralized listing of all the Des Moines tech companies. So...I created
-        it.
+      <Step title="Learnt React.JS">
+        I was a little confused about React.JS, but I was able to learn it
+        during summers of 2020. I initially strugged with JavaScript but as soon
+        as I started writing more code, I got really good at it!
       </Step>
-      <Step title="Joined Hy-Vee 🛒">
-        It was time for a change in my career, and Hy-Vee came calling. The best
-        part was reducing my commute time by an hour/day.
+
+      <Step title="Learnt about web development.">
+        I purchased an udemy course which provided me with a solid foundation in
+        web development. I'm thankful to Colt Steele for creating that awesome
+        web development course.
       </Step>
     </ul>
     <Divider />
-    <Year>2016</Year>
+    <Year>2018</Year>
     <ul>
-      <Step title="Graduated College 🎓">
-        One of my most cherished accomplishments. I worked my ass off to get
-        this degree.
+      <Step title="First program.">
+        I learnt about C++ and Python in my college and I started learning to
+        code. I remember creating small calculator programs in C++ and Python.
       </Step>
-      <Step title="Family Roadtrip 🚗">
-        To celebrate graduating, my family and I did a road trip down the
-        Pacific Coast Highway in California. An unforgettable experience.
+      <Step title="Took admission in college.">
+        I took admission in an engineering college and chose Computer
+        Engineering as my branch.
       </Step>
-      <Step title="Full-Time at Workiva">
-        I was offered and accepted a full-time offer with Workiva, as well as
-        the opportunity to continue my internship until graduation.
+      <Step title="Failed to crack IIT-JEE in my second attempt.">
+        I was prepared this time around, but I failed to crack it again.
+        Realized that failures are a part of life and that there's more to life
+        as well.
       </Step>
-      <Step title="Moved to Des Moines 🏙">
-        I moved Downtown DSM into a quaint 1BR apartment. Des Moines has always
-        felt like home growing up ~45 minutes away.
+    </ul>
+    <Divider />
+    <Year>2017</Year>
+    <ul>
+      <Step title="Completed +2 Education from Junior College">
+        Finished my HSC Course with A+ grade.
+      </Step>
+      <Step title="Failed in my first attempt to crack IIT-JEE">
+        I tried to crack IIT JEE Examination. This was one of the lowest career
+        points. I gathered enough courage to give it another shot.
       </Step>
     </ul>
     <Divider />
     <Year>2015</Year>
     <ul>
-      <Step title="Started at Workiva 🔥">
-        This internship meant a lot to me. Being able to work part-time while
-        still getting my school work done was huge.
+      <Step title="Completed High School Education">
+        Finished SSC Boards with 94% and I was state topper in mathematics.
       </Step>
-      <Step title="Started Tutoring Programming">
-        Why not make a little extra money and sharpen my skills? I taught Python
-        to ISU Freshman.
-      </Step>
-      <Step title="Second Internship">
-        Spent the summer in (beautiful?) Cedar Rapids, IA working at Rockwell
-        Collins.
+      <Step title="Started preparation for IIT-JEE">
+        IIT always attracted me as a student and I decided to take the IIT-JEE
+        entrance exam.
       </Step>
     </ul>
     <Divider />
-    <Year>2014</Year>
-    <ul>
-      <Step title="Took a Semester Off">
-        I opted to stay at my internship full-time throughout the fall.
-      </Step>
-      <Step title="Landed First Internship">
-        Finally felt like I understood this whole programming thing. My
-        interviewing skills weren't great, but I managed to snag my first
-        internship.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>2011</Year>
-    <ul>
-      <Step title="Graduated High School">
-        My hometown had about 1000 people, in total. My graduating class was 36.
-      </Step>
-      <Step title="Started at Iowa State University 🌪❤️">
-        I've been a die-hard Cyclone fan my whole life. It was a no-brainer that
-        I was going to ISU, especially since they have a great Engineering
-        program.
-      </Step>
-      <Step title="Learned How To Program">
-        CS 101. Our professor asked a simple question - "Who here has prior
-        programming experience?". About 80% of the class raised their hands. I
-        knew it was going to be an uphill battle from here.
-      </Step>
-      <Step title="Wanted To Dropout of College">
-        I didn't pick up programming right away. It didn't help we learned C to
-        start – I'm glad I stuck with it, though.
-      </Step>
-    </ul>
-    <Divider />
-    <Year>1998</Year>
+    <Year>2009</Year>
     <ul>
       <Step title="First Computer">
-        I remember many nights playing Age of Empires, Lego Island, and
-        Runescape.
+        I remember many nights playing Grand Theft Auto. I was a kid, and I
+        wanted to be a computer programmer.
       </Step>
     </ul>
     <Divider />
-    <Year>1997</Year>
+
+    <Year>1999</Year>
     <ul>
-      <Step title="Became a Pokémon Master">
-        Every time we'd go to Target, I would beg my mom to get a pack of
-        Pokémon cards. Sorry, mom.
-      </Step>
+      <Step title="Born 👶🏼" />
     </ul>
     <Divider />
-    <Year>1993</Year>
-    <ul>
-      <Step title="Born 👶🏼🍼" />
-    </ul>
   </>
 );
 
@@ -158,71 +123,25 @@ export default function Timeline() {
       </h3>
       <Year>2021</Year>
       <ul>
-        <Step title="Head of Developer Relations at Vercel 👨‍👩‍👧‍👦">
-          I'm extremely excited about this new role helping grow the Next.js and
-          Vercel community.
+        <Step title="Started Looking for my next adventure.">
+          I gathered enough experience from my first internship @ neoG Camp. It
+          is now time to find my next destination.
         </Step>
-        <Step title="10,000 YouTube Subscribers 🎥">
-          After many years on YouTube, I've started to figure this whole video
-          thing out.
+        <Step title="Joined neoG Camp as Web Development Intern">
+          Tanay Pratap (Ex-Microsoft) offered me an internship as a Web
+          Developer in their startup. I worked with other developers to work on
+          a project that would help neoG Camp admit new students into the
+          bootcamp. This was my first time working on a real world product that
+          would be used by so many users.
         </Step>
-        <Step title="5,000 Newsletter Subscribers 💌">
-          If you want to stay up-to-date on my latest work, it usually hits the
-          newsletter first. I try to send an update once a month.
-        </Step>
-      </ul>
-      <Divider />
-      <Year>2020</Year>
-      <ul>
-        <Step title="Joined ▲Vercel">
-          I'm excited to help grow the Next.js community and continue building
-          the optimal workflow for front-end developers.
-        </Step>
-        <Step title="Launched React 2025 💯">
-          Building a real SaaS application, from zero to production.
-        </Step>
-        <Step title="Emerging Technology Leader of the Year 🏆">
-          I was extremely honored to be one of five finalists nominated for this
-          award at the 2020 Prometheus Awards.
-        </Step>
-        <Step title="Got Married 🥳">
-          Great year for a wedding, huh? We had a small ceremony with family and
-          it was better than I could have imagined.
-        </Step>
-        <Step title="Became a Tech Lead 👨🏻‍💻">
-          Starting at the beginning of 2020, I moved into a tech leadership role
-          on an e-commerce development team at Hy-Vee.
-        </Step>
-        <Step title="Mastering Next.js made $10K 📈">
-          I taught hundreds of students from all over the world how to build web
-          applications. Exceeded my wildest expectations.
+        <Step title="Joined neoG Bootcamp.">
+          It was time to upskill and upgrade my skills to next level. I heard
+          about neoG Camp from my friends and I enrolled in the program. It is a
+          serious program that teaches you how to develop good coding habits.
+          Made a lot of friends and got a lot of experience.
         </Step>
       </ul>
-      <Divider />
-      <Year>2019</Year>
-      <ul>
-        <Step title="Software Engineer III ✨">
-          Led design system architecture at Hy-Vee, building new components with
-          React, Storybook, and styled-components.
-        </Step>
-        <Step title="Mastering Next.js ⚛️">
-          Launched a 50+ lesson video course for building apps with Next.js and
-          React.
-        </Step>
-        <Step title="Bought a Townhome 🏡">
-          Who wants to do yardwork? Not me. Plus, Allie and I love living
-          downtown Des Moines.
-        </Step>
-        <Step title="Got Engaged 💍">
-          I asked my now fiancée, Allie, to marry me. She said yes! September
-          was a busy month, to say the least – I also spoke at three events and
-          sold my condo.
-        </Step>
-        <Step title="Spoke at Talent42 🎤">
-          I spoke to over 100 technical recruiting leaders from across the
-          country at Talent42 in Seattle during a 45-minute keynote.
-        </Step>
-      </ul>
+
       {isShowingFullTimeline ? (
         <FullTimeline />
       ) : (
