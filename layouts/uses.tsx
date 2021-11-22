@@ -1,9 +1,9 @@
 import Container from 'components/Container';
-import Image from 'next/image';
+
 export default function UsesLayout({ children }) {
   return (
     <Container
-      title="Uses – Lee Robinson"
+      title="Uses – Omkar Kulkarni"
       description="Here's what tech I'm currently using for coding, videos, and music."
     >
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
@@ -12,8 +12,8 @@ export default function UsesLayout({ children }) {
         </h1>
         <p className="text-gray-700 dark:text-gray-300 mt-2 mb-8">
           Here's what tech I'm currently using for coding, videos, and music.
-          Most of these have been accumulated over the past few years, with a
-          recent office upgrade in 2020.
+          Most of these have been accumulated over the past few years. I got
+          shiny new mechanical keyboard in late 2020.
         </p>
         <div className="prose dark:prose-dark w-full">{children}</div>
       </article>

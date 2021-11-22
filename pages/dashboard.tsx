@@ -11,7 +11,7 @@ import { SiSpotify } from 'react-icons/si';
 export default function Dashboard() {
   return (
     <Container
-      title="Dashboard – Lee Robinson"
+      title="Dashboard – Omkar Kulkarni"
       description="My personal dashboard, built with Next.js API routes deployed as serverless functions."
     >
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
