@@ -117,19 +117,19 @@ export default function Home({ videos }) {
           />
           <ProjectCard
             href="#"
-            title="DogeFlix"
-            brandColor={'#B45309            '}
-            projectLogo={VideoLibrary}
-            stack={['typescript', 'nextjs', 'react', 'nodejs', 'mongodb']}
-            description="DogeFlix is a website showcasing latest and upcoming movie trailers."
-          />
-          <ProjectCard
-            href="#"
             title="DogeMart"
             projectLogo={Ecommerce}
             brandColor={'#D97706'}
             stack={['typescript', 'nextjs', 'react', 'nodejs']}
             description="DogeMart is a eCommerce website where one can buy various goods."
+          />
+          <ProjectCard
+            href="#"
+            title="DogeFlix"
+            brandColor={'#B45309            '}
+            projectLogo={VideoLibrary}
+            stack={['typescript', 'nextjs', 'react', 'nodejs', 'mongodb']}
+            description="DogeFlix is a website showcasing latest and upcoming movie trailers."
           />
         </motion.ul>
         <Link href="/projects">
