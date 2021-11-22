@@ -23,6 +23,11 @@ body {
   cursor: url('/static/images/new-tab.png') 10 10, pointer;
 }
 
+.desk-image img {
+  border-radius: 30px;
+  overflow: hidden;
+}
+
 .animate-scale {
   @apply transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none;
 }
