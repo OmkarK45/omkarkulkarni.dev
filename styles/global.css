@@ -23,6 +23,10 @@ body {
   cursor: url('/static/images/new-tab.png') 10 10, pointer;
 }
 
+.animate-scale {
+  @apply transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none;
+}
+
 html {
   min-width: 360px;
   scroll-behavior: smooth;

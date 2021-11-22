@@ -79,7 +79,7 @@ export default function NowPlaying() {
   const { data } = useSWR<NowPlayingSong>('/api/now-playing', fetcher);
 
   return (
-    <div className="mx-auto max-w-md w-full items-center sm:flex-row mb-8 ">
+    <div className="mx-auto max-w-md w-full items-center sm:flex-row mb-8 animate-scale">
       <div className="relative flex items-center p-5 space-x-4 rounded-md border border-gray-200 dark:border-gray-700">
         <div className="flex justify-center items-center text-gray-900 dark:text-gray-500">
           {data?.isPlaying ? (
