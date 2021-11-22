@@ -7,6 +7,7 @@ import Gumroad from 'components/metrics/Gumroad';
 import Analytics from 'components/metrics/Analytics';
 import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
+import React from 'react';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -29,6 +30,23 @@ function RoundedImage(props) {
   );
 }
 
+function Code(props: React.ComponentProps<'code'>) {
+  const language = props.className?.includes('language')
+    ? props.className.replace('language-', '').replace(' code-highlight', '')
+    : null;
+
+  return (
+    <code {...props} className="relative">
+      {language && (
+        <div className="absolute -top-5 px-3 py-1 bg-gray-800 text-white border border-t-0 border-gray-600 rounded-b-md left-0">
+          <span className="font-medium  select-none ">{language}</span>
+        </div>
+      )}
+      <div className="mt-5">{props.children}</div>
+    </code>
+  );
+}
+
 const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
@@ -37,7 +55,8 @@ const MDXComponents = {
   ConsCard,
   Gumroad,
   ProsCard,
-  Step
+  Step,
+  code: Code
 };
 
 export default MDXComponents;
