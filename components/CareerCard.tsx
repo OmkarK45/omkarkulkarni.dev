@@ -1,4 +1,5 @@
 import { Career, career } from 'data/work/career';
+import { HiLightningBolt } from 'react-icons/hi';
 import { ExternalLink } from './Footer';
 import { Labels } from './Label';
 
@@ -12,7 +13,7 @@ const CareerCard = ({
   last
 }: Props) => {
   return (
-    <li className=" border border-gray-200 dark:border-gray-800 p-4 rounded-lg animate-scale">
+    <li className=" border border-gray-200  dark:border-gray-800 p-4 rounded-lg animate-scale">
       <div className="relative">
         {!last && (
           <span
@@ -32,9 +33,13 @@ const CareerCard = ({
                 <span className="text-lg font-medium text-gray-900 dark:text-gray-200">
                   {title}
                 </span>
+                <span className="ml-3 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-100 dark:bg-pink-700 dark:text-pink-100 text-pink-800">
+                  Startup <HiLightningBolt className="text-md ml-2" />
+                </span>
               </ExternalLink>
               <p className="text-sm text-secondary">{time}</p>
             </div>
+            <p className="text-gray-500 text-sm ">{type}</p>
             <p className="mb-1.5 prose text-gray-600 dark:text-gray-300">
               {description}
             </p>
