@@ -1,0 +1,74 @@
+---
+title: 'Absolute Imports'
+description: 'Use path aliases for better code maintainance.'
+logo: 'react.png'
+---
+
+TL;DR - Ever came across the lovely
+
+```jsx
+import { Button } from '../../../../ui/Button';
+```
+
+pattern?
+
+You can convert this to something like this
+
+```tsx
+import { Button } from '~/ui/Button';
+```
+
+As your project grows in size, keeping track of imports gets tedious.
+Absolute imports are a great way to manage and clean ugly imports.
+This can be used with TypeScript as well as JavaScript projects.
+
+# For TypeScript/JavaScript projects
+
+> Add this in the root of the project with the filename tsconfig.json/jsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", ".next"]
+}
+```
+
+As far as projects bootstrapped with create-react-app is concerned,
+a similar setup can be acheived with the help of a npm package
+[Craco](https://www.npmjs.com/package/@craco/craco)
+
+Create a new file craco.config.js and add the following code.
+Make sure to follow the jsconfig/tsconfig steps we just saw.
+
+```js:craco.config.js
+const path = require('path');
+
+module.exports = {
+  webpack: {
+    alias: {
+      '~': path.resolve(__dirname, 'src'),
+    },
+  },
+};
+
+```
+
+I have used in my production projects as well. Really takes pain of calculating
+file locations. My mental model around this is, a central place for imports!
+So no matter what component requires a button, the import would be always resolved from
+'ui' folder.
+
+```jsx
+import { Button } from '~/ui/Button';
+```
+
+You can also use '@' symbol instead of '~' (tilde) but I find it conflicting it with
+npm packages.
+
+Let me know what you think of this setup!

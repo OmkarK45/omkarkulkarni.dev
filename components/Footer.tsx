@@ -3,10 +3,23 @@ import Image from 'next/image';
 import { HiHeart } from 'react-icons/hi';
 
 import NowPlaying from 'components/NowPlaying';
+import clsx from 'clsx';
+import React from 'react';
 
-export const ExternalLink = ({ href, children }) => (
+export const ExternalLink = ({
+  href,
+  children,
+  className
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+}) => (
   <a
-    className="text-gray-500 hover:text-gray-600 transition cursor-newtab"
+    className={clsx(
+      'text-gray-500 hover:text-gray-600 transition cursor-newtab',
+      className
+    )}
     target="_blank"
     rel="noopener noreferrer"
     href={href}
@@ -42,11 +55,6 @@ export default function Footer() {
               About
             </a>
           </Link>
-          <Link href="/newsletter">
-            <a className="text-gray-500 hover:text-gray-600 transition">
-              Newsletter
-            </a>
-          </Link>
         </div>
         <div className="flex flex-col space-y-4">
           <ExternalLink href="https://twitter.com/omkar_k45">
@@ -75,8 +83,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="text-gray-500 inline-flex items-center">
-        Portfolio by Lee Robinson. &copy; Lee Robinson. Used with permission{' '}
-        {':)'}
+        Original Portfolio by Lee Robinson.
       </p>
     </footer>
   );

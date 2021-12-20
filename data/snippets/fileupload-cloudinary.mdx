@@ -1,0 +1,52 @@
+---
+title: 'Upload image to cloudinary'
+description: 'Easy way to upload images to cloudinary using Node.JS Cloudinary SDK'
+logo: 'cloudinary.png'
+---
+
+Cloudinary is fantastic for image uploads. It supports on the fly transforms,
+image optimizations. If you want to upload images to cloudinary using their SDK,
+you can use the follwoing snippet to do so!
+
+```ts:utils/upload.ts
+import { v2 as cloudinary, UploadApiResponse } from 'cloudinary';
+
+cloudinary.config({
+  cloud_name: 'your_cloud_name',
+  api_key: 'your_very_secret_key',
+  api_secret: 'your_secret'
+});
+
+export async function upload(file): Promise<UploadApiResponse> {
+  const newFile = await file;
+
+  return new Promise((resolve, reject) => {
+    const uploadStream = cloudinary.uploader.upload_stream(
+      { folder: config.cloudinary.folder },
+      (err, img) => {
+        if (img) {
+          resolve(img);
+        } else {
+          reject(err);
+        }
+      }
+    );
+
+    newFile.createReadStream().pipe(uploadStream);
+  });
+}
+```
+
+Woo! A lot going on right there. So this function returns a promise that resolves to UploadApiResponse after successful upload.
+This response has one thing that we need which is the image URL!
+This image URL is something you can save in your database.
+
+# Usage
+
+You can now upload file like this
+
+```ts:/resolvers/CreatePost.ts
+const response = await upload(media);
+```
+
+The response object will have a URL of the image we just uploaded!

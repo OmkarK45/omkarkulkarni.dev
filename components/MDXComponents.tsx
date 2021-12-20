@@ -34,7 +34,6 @@ function Code(props: React.ComponentProps<'code'>) {
   const language = props.className?.includes('language')
     ? props.className.replace('language-', '').replace(' code-highlight', '')
     : null;
-
   return (
     <code {...props} className="relative">
       {language && (

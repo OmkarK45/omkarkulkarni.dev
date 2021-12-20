@@ -88,17 +88,17 @@ export default function Home({ videos }) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
-            title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-            slug="style-guides-component-libraries-design-systems"
+            title="Get started with Docker and Next.JS [Currently writing]"
+            slug="style-guides-component-libraries-design-system"
             gradient="from-[#D8B4FE] to-[#818CF8]"
           />
           <BlogPostCard
-            title="Past, Present, and Future of React State Management"
+            title="Use HTTPS for local development! [Currently writing]"
             slug="react-state-management"
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
-            title="Which Back End Should I Use As A Front-End Developer?"
+            title="Typesafe GraphQL with GiraphQL [Currently writing]"
             slug="backend"
             gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           />
@@ -118,7 +118,7 @@ export default function Home({ videos }) {
         </p>
         <motion.ul className="w-full">
           <ProjectCard
-            href="#"
+            href="/projects/dogesocial"
             title="DogeSocial"
             brandColor={'#BE185D'}
             projectLogo={SocialMedia}
@@ -126,7 +126,7 @@ export default function Home({ videos }) {
             description="DogeSocial is a place to share and see what your friends are upto."
           />
           <ProjectCard
-            href="#"
+            href="/projects/dogemart"
             title="DogeMart"
             projectLogo={Ecommerce}
             brandColor={'#D97706'}
@@ -134,7 +134,7 @@ export default function Home({ videos }) {
             description="DogeMart is a eCommerce website where one can buy various goods."
           />
           <ProjectCard
-            href="#"
+            href="/projects/dogeflix"
             title="DogeFlix"
             brandColor={'#B45309            '}
             projectLogo={VideoLibrary}

@@ -29,17 +29,20 @@ const CareerCard = ({
           />
           <div className="w-full">
             <div className="flex items-center justify-between">
-              <ExternalLink href={url}>
+              <ExternalLink
+                href={url}
+                className="flex flex-col md:flex-row space-y-1 md:space-y-0"
+              >
                 <span className="text-lg font-medium text-gray-900 dark:text-gray-200">
                   {title}
                 </span>
-                <span className="ml-3 inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-pink-100 dark:bg-pink-700 dark:text-pink-100 text-pink-800">
+                <span className="md:ml-3 inline-flex items-center px-3 rounded-full text-sm font-medium bg-pink-100 dark:bg-pink-700 dark:text-pink-100 text-pink-800">
                   Startup <HiLightningBolt className="text-md ml-2" />
                 </span>
               </ExternalLink>
               <p className="text-sm text-secondary">{time}</p>
             </div>
-            <p className="text-gray-500 text-sm ">{type}</p>
+            <p className="text-gray-500 text-sm mt-1 md:mt-0">{type}</p>
             <p className="mb-1.5 prose text-gray-600 dark:text-gray-300">
               {description}
             </p>
