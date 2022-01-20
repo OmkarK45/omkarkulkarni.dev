@@ -7,7 +7,11 @@ import Gumroad from 'components/metrics/Gumroad';
 import Analytics from 'components/metrics/Analytics';
 import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
+import SplitImage from 'components/SplitImage';
+import { Split } from 'components/SplitImage';
+
 import React from 'react';
+import { LightBoxImage } from './LightboxImage';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -55,7 +59,10 @@ const MDXComponents = {
   Gumroad,
   ProsCard,
   Step,
-  code: Code
+  code: Code,
+  SplitImage,
+  Split,
+  LightBoxImage
 };
 
 export default MDXComponents;

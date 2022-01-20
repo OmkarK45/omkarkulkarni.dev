@@ -334,3 +334,7 @@ table {
   overflow-x: auto;
   white-space: nowrap;
 }
+
+h1 {
+  @apply dark:text-white;
+}

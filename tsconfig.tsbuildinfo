@@ -10686,6 +10686,16 @@
         "signature": "d5bbfe5de59a7cbcac192bcbb7326c70cace476e303c5853664b1a8fdf4c39d3",
         "affectsGlobalScope": false
       },
+      "./node_modules/react-image-lightbox/index.d.ts": {
+        "version": "bef9dab3e1f2dbb48f5e521b9a05b55a834ee524621ea302e8a23a426d371acf",
+        "signature": "bef9dab3e1f2dbb48f5e521b9a05b55a834ee524621ea302e8a23a426d371acf",
+        "affectsGlobalScope": false
+      },
+      "./components/lightboximage.tsx": {
+        "version": "592a12022c9055f06ca97769d51a2657f6145de9b499b1de6c6030035e9ca16f",
+        "signature": "67af0b03702222a126dd8d446193fea61b56e156f37a37ddb5af5fafadbf1d94",
+        "affectsGlobalScope": false
+      },
       "./components/proscard.tsx": {
         "version": "c53492b2c20134561ea99d54d50b862079480ee9cea50183004e05ec1a1b245f",
         "signature": "8c96f13caaa79634a0400dd13bdef5564aba3c929f9ddda5620ba146057c9b57",
@@ -10711,9 +10721,14 @@
         "signature": "4ff197f6984822fe98c6f3ad2a9b088649688c1af9b5c7e9ca1ff42e523bd5db",
         "affectsGlobalScope": false
       },
+      "./components/splitimage.tsx": {
+        "version": "88beda183d03a9ca0aeef60f365e66f6cfec4238b9958a40f967abfeabd89227",
+        "signature": "10ce4d352c8c0604d84330d6007bca48aee09c3f5f0106884d69179d83882db8",
+        "affectsGlobalScope": false
+      },
       "./components/mdxcomponents.tsx": {
-        "version": "e9e0776dcbd7b5256c9685bb332a7fb02f042789b3c623319d662aee8cabbe0a",
-        "signature": "eaadfc05dffedb8828ea3851d76d67230a5f2883a3c0ec90b970fb3fd9a79bd5",
+        "version": "711c660c24d10f0c1568e00a57b4eff4970021a8818d6c841d251694ef137ae7",
+        "signature": "e1c2bdf8ade9056c0f67f5a7e409bf11b90896c6974f5ccbb2134319b60b4a05",
         "affectsGlobalScope": false
       },
       "./components/newsletterlink.tsx": {
@@ -11965,6 +11980,13 @@
         "./node_modules/clsx/clsx.d.ts",
         "./node_modules/date-fns/typings.d.ts"
       ],
+      "./components/lightboximage.tsx": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/date-fns/typings.d.ts",
+        "./node_modules/next/image.d.ts",
+        "./node_modules/react-image-lightbox/index.d.ts"
+      ],
       "./components/loadingspinner.tsx": [
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/date-fns/typings.d.ts"
@@ -11972,9 +11994,11 @@
       "./components/mdxcomponents.tsx": [
         "./components/conscard.tsx",
         "./components/imagewiththeme.tsx",
+        "./components/lightboximage.tsx",
         "./components/metrics/analytics.tsx",
         "./components/metrics/gumroad.tsx",
         "./components/proscard.tsx",
+        "./components/splitimage.tsx",
         "./components/step.tsx",
         "./node_modules/@types/node/util.d.ts",
         "./node_modules/@types/react/index.d.ts",
@@ -12050,6 +12074,11 @@
       ],
       "./components/proscard.tsx": [
         "./node_modules/@types/node/util.d.ts",
+        "./node_modules/date-fns/typings.d.ts"
+      ],
+      "./components/splitimage.tsx": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/react/index.d.ts",
         "./node_modules/date-fns/typings.d.ts"
       ],
       "./components/step.tsx": [
@@ -27155,6 +27184,11 @@
         "./node_modules/date-fns/typings.d.ts",
         "./node_modules/react-icons/lib/cjs/index.d.ts"
       ],
+      "./node_modules/react-image-lightbox/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/date-fns/typings.d.ts"
+      ],
       "./node_modules/reading-time/index.d.ts": [
         "./node_modules/@types/node/stream.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -28318,9 +28352,11 @@
       "./components/mdxcomponents.tsx": [
         "./components/conscard.tsx",
         "./components/imagewiththeme.tsx",
+        "./components/lightboximage.tsx",
         "./components/metrics/analytics.tsx",
         "./components/metrics/gumroad.tsx",
         "./components/proscard.tsx",
+        "./components/splitimage.tsx",
         "./components/step.tsx",
         "./node_modules/@types/react/index.d.ts"
       ],
@@ -28329,6 +28365,9 @@
       ],
       "./components/projectcard.tsx": [
         "./node_modules/react-icons/lib/cjs/index.d.ts"
+      ],
+      "./components/splitimage.tsx": [
+        "./node_modules/@types/react/index.d.ts"
       ],
       "./contentlayer.config.ts": [
         "./node_modules/@contentlayer/core/dist/index.d.ts"
@@ -43307,6 +43346,11 @@
         "./node_modules/date-fns/typings.d.ts",
         "./node_modules/react-icons/lib/cjs/index.d.ts"
       ],
+      "./node_modules/react-image-lightbox/index.d.ts": [
+        "./node_modules/@types/node/util.d.ts",
+        "./node_modules/@types/react/index.d.ts",
+        "./node_modules/date-fns/typings.d.ts"
+      ],
       "./node_modules/reading-time/index.d.ts": [
         "./node_modules/@types/node/stream.d.ts",
         "./node_modules/@types/node/util.d.ts",
@@ -44182,6 +44226,7 @@
       "./components/icons.tsx",
       "./components/imagewiththeme.tsx",
       "./components/label.tsx",
+      "./components/lightboximage.tsx",
       "./components/loadingspinner.tsx",
       "./components/mdxcomponents.tsx",
       "./components/metrics/analytics.tsx",
@@ -44194,6 +44239,7 @@
       "./components/nowplaying.tsx",
       "./components/projectcard.tsx",
       "./components/proscard.tsx",
+      "./components/splitimage.tsx",
       "./components/step.tsx",
       "./components/subscribe.tsx",
       "./components/successmessage.tsx",
@@ -46300,6 +46346,7 @@
       "./node_modules/react-icons/lib/cjs/iconsmanifest.d.ts",
       "./node_modules/react-icons/lib/cjs/index.d.ts",
       "./node_modules/react-icons/si/index.d.ts",
+      "./node_modules/react-image-lightbox/index.d.ts",
       "./node_modules/reading-time/index.d.ts",
       "./node_modules/rehype-autolink-headings/index.d.ts",
       "./node_modules/rehype-code-titles/index.d.ts",
@@ -46544,6 +46591,10 @@
         1
       ],
       [
+        "./components/lightboximage.tsx",
+        1
+      ],
+      [
         "./components/loadingspinner.tsx",
         1
       ],
@@ -46589,6 +46640,10 @@
       ],
       [
         "./components/proscard.tsx",
+        1
+      ],
+      [
+        "./components/splitimage.tsx",
         1
       ],
       [
@@ -55013,6 +55068,10 @@
       ],
       [
         "./node_modules/react-icons/si/index.d.ts",
+        1
+      ],
+      [
+        "./node_modules/react-image-lightbox/index.d.ts",
         1
       ],
       [
