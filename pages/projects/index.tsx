@@ -2,6 +2,7 @@ import { allProjects } from '.contentlayer/data';
 import { pick } from 'lib/utils';
 import type { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
+import { VideoLibrary, SocialMedia, Ecommerce } from 'components/Icons';
 
 import Container from 'components/Container';
 
@@ -42,38 +43,26 @@ export default function Projects({
 
 function ProjectCard({ title, description, image, link, slug, github, logo }) {
   return (
-    <div className="flex items-center justify-center w-full h-full rounded-lg overflow-hidden shadow-sm border border-gray-300/50 dark:border-gray-700 transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none">
-      <div className="flex items-center justify-center w-full h-full ">
-        <div className="w-80 bg-white dark:bg-gray-800 h-full flex flex-col ">
-          <img className="w-full" src={image} alt="sunset" />
-          <div className="px-5 pt-4 pb-6 flex-1 ">
-            <a
-              href={link}
-              className="text-xl font-semibold leading-tight dark:text-gray-100 "
-            >
-              <span className=" underline">{title}</span>{' '}
-              <span className="!no-underline">🡥</span>
-            </a>
-            <p className="text-sm leading-4 pt-3 dark:text-gray-400 text-gray-500">
-              {description}
-            </p>
-          </div>
-          <div className="flex space-x-2 px-5 pb-3 items-center  !mt-auto">
-            <Link href={`/projects/${slug}`}>
-              <button className="text-sm text-center font-semibold leading-3 text-white bg-pink-700 dark:bg-pink-700 dark:hover:bg-pink-800 rounded hover:bg-pink-600 py-3 w-full mt-7">
-                Read More
-              </button>
-            </Link>
-            <a
-              href={github}
-              className="text-sm text-center font-semibold leading-3 dark:text-white  bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-800 rounded hover:bg-gray-500/20 py-3 w-full mt-7"
-            >
-              View Source
-            </a>
+    <Link passHref href={`/projects/${slug}`}>
+      <div className="flex cursor-pointer items-center justify-center w-full h-full rounded-lg overflow-hidden shadow-sm border border-gray-300/50 dark:border-gray-700 transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none">
+        <div className="flex items-center justify-center w-full h-full ">
+          <div className="w-80 bg-white dark:bg-gray-800 h-full flex flex-col ">
+            <img className="w-full" src={image} alt="sunset" />
+            <div className="px-5 pt-4 pb-6 flex-1">
+              <a
+                href={link}
+                className="text-xl inline-block font-semibold no-underline leading-tight dark:text-gray-100 "
+              >
+                <span>{title}</span>
+              </a>
+              <p className="text-sm leading-4 pt-3 dark:text-gray-400 text-gray-500">
+                {description}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
