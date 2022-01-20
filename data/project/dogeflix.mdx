@@ -26,6 +26,7 @@ This project aims to create a platform to watch movie trailers all around the wo
 - Ability to react with various emotes such as PepeNice, PepeYikes, KEKW, and PogU
 - Create public playlists to share with others. Playlist can be edited, renamed, or deleted etc.
 - Maintain a collection of favorite trailers in your favorites playlist.
+- Search by movie title, imdb rating or imdb ID (if you can memorize it haha :P)
 
 ## Tech Stack Used
 
@@ -111,7 +112,8 @@ Tech Stack Summarised:
 
 ## Key Learnings
 
-- Pagination matters. You simply cannont render 100+ items on the initial render on a react application.
+- Pagination matters. You simply cannot render 100+ items on the initial render on a react application. It will
+  take a toll on performance as you scale up. Pagination is a neat way to handle this.
   I consolidated my knowledge of cursor based pagination, implemented infinite load more pagination using SWR
   that too backed by Prisma!
 - Initial data gathering is hard. To seed the database, I had to write a Node.JS Data scrapping
