@@ -10,7 +10,7 @@ export function LightBoxImage(props) {
     <>
       <Image
         alt={props.alt}
-        className="rounded-lg overflow-hidden "
+        className="rounded-lg overflow-hidden cursor-pointer"
         {...props}
         onClick={() => setOpen(true)}
       />
