@@ -25,7 +25,7 @@ export default function ProjectLayout({
       title={`${project.title} – Omkar Kulkarni`}
       description={project.description}
       image={`https://omkarkulkarni.vercel.app${project.image}`}
-      date={new Date(project.publishedAt).toISOString()}
+      date={project.publishedAt}
       type="article"
     >
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
