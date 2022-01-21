@@ -46,7 +46,7 @@ function ProjectCard({ title, description, image, link, slug, github, logo }) {
     <Link passHref href={`/projects/${slug}`}>
       <div className="flex cursor-pointer items-center justify-center w-full h-full rounded-lg overflow-hidden shadow-sm border border-gray-300/50 dark:border-gray-700 transform transition duration-300 hover:scale-110 hover:shadow-lg active:scale-95 active:shadow-none">
         <div className="flex items-center justify-center w-full h-full ">
-          <div className="w-80 bg-white dark:bg-gray-800 h-full flex flex-col ">
+          <div className=" bg-white dark:bg-gray-800 h-full flex flex-col ">
             <img className="w-full" src={image} alt="sunset" />
             <div className="px-5 pt-4 pb-6 flex-1">
               <a

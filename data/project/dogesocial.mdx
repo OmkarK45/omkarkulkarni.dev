@@ -9,4 +9,157 @@ github: 'https://github.com/omkark45'
 slug: 'dogesocial'
 ---
 
-this is a test
+## Short Explanation
+
+DogeSocial is a social media platform to see and share posts. You can follow real people,
+connect with real people, share what's on your mind and more.
+You can explore trending posts, trending hashtags and more.
+DogeSocial supports media uploads, a full fledgeed emoji picker and a GIF picker :)
+
+## Project Features
+
+- Infinite Scroll for posts, comments and hashtags.
+- Search for posts, comments and hashtags.
+- Upload GIF posts, text posts, or images.
+- Create/Upload/Edit/Delete Posts
+- Reply and ability to edit own comments under a post
+- Mention other users in post captions, use hashtags, post links. These things are parsed and highlighted.
+- Notification when someone follows you/likes your post/or replies to your post
+- Emoji Picker and GIF Picker for Posts
+- Dark Mode
+- See trending hashtags
+- Search other users, search posts by hashtags,
+- Follow/Unfollow other users
+
+## Tech Stack Used:
+
+This project is built with [Next.js](https://nextjs.org/). I used this project as a way
+to learn about GraphQL awesomeness. The backend API is a Apollo-Express GraphQL server.
+Both backend and frontend are written in Typescript. The database used is PostgreSQL with Prisma.
+
+For data fetching on the frontend, I used Apollo Client. It supports SSR so that you get awesome
+performance, and great SEO! Apollo Client also supports relay style pagination.
+
+I chose tailwindCSS to build the UI. I abstracted atomic components like buttons, inputs.
+
+All image uploads are done through Cloudinary Node.JS SDK. It's a cloud image hosting service.
+Cloudinary provides around 25GB storage bandwidth every month.
+
+All queries are written in a GraphQL framework [GiraphQL](https://www.giraphql.com/).
+It makes writing GraphQL queries a breeze. GiraphQL works well with Prisma and comes with
+out of the box support for stuff like Auth Scopes, Prisma integration and much more.
+
+The relay team at Meta has made a pagination spec that defines data as Nodes and Edges.
+A typical GraphQL query looks like this:
+
+```graphql
+query {
+  allPosts(first: 10, after: "cursor") {
+    edges {
+      node {
+        id
+        ... on Post {
+          title
+          body
+        }
+      }
+    }
+  }
+}
+```
+
+In the query, the connection model provides a standard mechanism for slicing and paginating the result set.
+
+In the response, the connection model provides a standard way of providing cursors, and a way of telling the client when more results are available.
+You can read more about it [here](https://relay.dev/graphql/connections.htm).
+
+Tech Stack Summarised:
+
+- Next.JS
+- TypeScript
+- Apollo GraphQL (Server and Client)
+- PostgreSQL
+- Node.JS
+- TailwindCSS
+- Cloudinary
+
+## Screenshots (click to enlarge)
+
+<SplitImage>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogesocial/1.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogesocial/2.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`Website Mockup`}
+      src={`/static/images/projects/dogesocial/6.png`}
+      width={1200}
+      height={720}
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`Website Mockup`}
+      src={`/static/images/projects/dogesocial/7.png`}
+      width={1200}
+      height={720}
+      objectFit="cover"
+    />
+  </Split>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogesocial/4.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogesocial/3.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`Website Mockup`}
+      src={`/static/images/projects/dogesocial/5.png`}
+      width={1200}
+      height={720}
+      objectFit="cover"
+    />
+  </Split>
+</SplitImage>
+
+## Key Learnings
+
+- Learnt about GraphQL. I was a little confused at first, but I was able to get a good grasp of it.
+  Not every page needs complete user data. With GraphQL you can only fetch what you want, you can even
+  convert it into reusable fragments. This is a great way to keep your queries clean and readable.
+
+- Used PostgreSQL for the first time. I am personally biased towards using SQL. Data is always connected
+  with each other. While I had DBMS subject during my CS Degree studies, being able to use the
+  DBMS knowledge and apply it in a real world app was an amazing experience.
+
+## Try it!
+
+[DogeSocial](https://dogesocial.vercel.app/)
+
+## Miscellanous
+
+DogeSocial recieved amazing response from everyone. The launch day saw around 80+ real user signups.
+It is one of my projects which took a lot of time to build.

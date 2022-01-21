@@ -4,9 +4,135 @@ description: 'DogeMart is a eCommerce website where one can buy various goods. O
 logo: 'buttondown.png'
 publishedAt: 'Jun-2021'
 image: '/static/images/projects/dogemart_banner.png'
-link: 'https://dogemart.vercel.app'
+link: 'https://dogemart.up.railway.app'
 github: 'https://github.com/omkark45'
 slug: 'dogemart'
 ---
 
-This is a test
+## Short Explanation
+
+DogeMart is a fashion and clothing e-commerce website targetted towards men and women fashion.
+You can buy products like any other ecommerce website, add product to your cart or store them in your
+wishlist to buy them later.
+A real payment gateway powered by Stripe is also added!
+
+## Project Goals
+
+- Create a marketplace to sell clothes and accessories.
+- Create a payment gateway for the website.
+- Integrate product review system, product rating system.
+- Sort by price, rating, popularity.
+- Filter by colors, brand or size.
+- Add product to cart and wishlist.
+
+## Tech stack Used
+
+DogeMart is written in Next.JS, TypeScript, Node.JS, Express and PostgreSQL stack.
+TypeScript ensures that the code is written in a way that is mostly bug free, high quality and easy to maintain.
+Almost all pages except products listing page are server side rendered. SSR ensures you get amazing
+SEO, Image Optimizations out of the box and much more.
+
+Since Next.JS is a fullstack react framework, it was relatively easy to integrate Stripe Checkout Flow (SCF).
+
+The backend is a Node.JS Express server. It uses PostgreSQL as a database with Prisma 2 as ORM.
+Working with a big graphql project earlier gave me a lot of experience with Pagination in general.
+So all routes which send data in form of array are paginated. This pagination is cursor pagination
+and is generally more powerful, performant than the traditional offset pagination.
+
+This opens up a really nice possibility of using Infinite Load More pagination which I am a big fan of.
+
+Tech Stack Used:
+
+- Next.JS
+- TypeScript
+- Node.JS
+- Express
+- PostgreSQL
+- Prisma 2
+- Stripe Checkout Flow
+
+## Screenshots (Click to enlarge)
+
+<SplitImage>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/1.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/2.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/4.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+  </Split>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/5.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/6.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/dogemart/3.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+  </Split>
+</SplitImage>
+
+## Key Learnings
+
+- SEO matters a lot in ecommerce. You need to make sure that your product page is optimized for search engines.
+- Learnt about user authentication and model surrounding it in ecommerce context.
+- Learnt about Stripe Checkout Flow. How to accept payments, how to integrate with Stripe.
+- Improved my concepts of pagination and infinite load more pagination.
+- Improved my TypeScript skills.
+
+## Honourable mentions
+
+- ZOD - ZOD is a schema validator for typescript. It helps you to validate your schema, integrates
+  nicely with react hook form.
+- React Hook Form - React Hook Form is my recommendation for doing forms in react. It embraces
+  uncontrolled inputs and it is very easy to use.
+
+## Try it out!
+
+[DogeMart](https://dogemart.up.railway.app)
+
+You can totally use dummy credentials to test the website.
+
+## Miscellanous
+
+Why Railway for deployment?
+
+I struggled a lot with using cross-domain cookie and session storage.
+Railway is the host for Backend and frontend of DogeMart. Same domain deployment
+solves this problem.
