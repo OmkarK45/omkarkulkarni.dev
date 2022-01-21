@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^3.4.1",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/typography": "0.4.1",
     "big.js": "6.1.1",
     "clsx": "^1.1.1",

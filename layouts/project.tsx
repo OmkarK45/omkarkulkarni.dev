@@ -9,6 +9,7 @@ import { SiGithub } from 'react-icons/si';
 import { ExternalLink } from 'components/Footer';
 import { HiOutlineCubeTransparent } from 'react-icons/hi';
 import { BgAnimation } from 'components/BgAnimation';
+import { BlurImage } from 'components/BlurImage';
 
 const editUrl = (slug) =>
   `https://github.com/omkark45/leerob.io/edit/main/data/blog/${slug}.mdx`;
@@ -28,8 +29,9 @@ export default function ProjectLayout({
       type="article"
     >
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
-        <span className="flex w-full relative h-auto mb-4 rounded-lg shadow-xl overflow-hidden">
-          <img
+        <span className="flex aspect-w-16 aspect-h-9 w-full relative  mb-4 rounded-lg shadow-xl overflow-hidden">
+          <BlurImage
+            layout="fill"
             alt={'Project Banner'}
             className="shadow-xl"
             src={project.image}

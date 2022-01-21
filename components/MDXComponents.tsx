@@ -9,6 +9,7 @@ import Step from 'components/Step';
 import ImageWithTheme from 'components/ImageWithTheme';
 import SplitImage from 'components/SplitImage';
 import { Split } from 'components/SplitImage';
+import { BlurImage } from 'components/BlurImage';
 
 import React from 'react';
 import { LightBoxImage } from './LightboxImage';
@@ -62,7 +63,8 @@ const MDXComponents = {
   code: Code,
   SplitImage,
   Split,
-  LightBoxImage
+  LightBoxImage,
+  BlurImage
 };
 
 export default MDXComponents;
