@@ -128,11 +128,10 @@ export default function Timeline() {
           is now time to find my next destination.
         </Step>
         <Step title="Joined neoG Camp as Web Development Intern">
-          Tanay Pratap (Ex-Microsoft) offered me an internship as a Web
-          Developer in their startup. I worked with other developers to work on
-          a project that would help neoG Camp admit new students into the
-          bootcamp. This was my first time working on a real world product that
-          would be used by so many users.
+          I joined neoG Camp as a Full stack web development intern. I worked
+          with other developers to work on a project that would help neoG Camp
+          admit new students into the bootcamp. This was my first time working
+          on a real world product that would be used by so many users.
         </Step>
         <Step title="Joined neoG Bootcamp.">
           It was time to upskill and upgrade my skills to next level. I heard
