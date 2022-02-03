@@ -1,0 +1,125 @@
+---
+title: 'SimpleIssue'
+description: 'SimpleIssue is a issue tracking web application for software engineering teams.'
+logo: 'dogeflix.png'
+publishedAt: 'Jan-2022'
+image: '/static/images/projects/simpleissue_banner.png'
+link: 'https://simpleissue.up.railway.app'
+github: 'https://github.com/omkark45/issue-tracker-frontend'
+slug: 'dogeui'
+---
+
+Surprise! not a product named Doge!!
+I have been using [Linear](https://linear.app) for a while now.
+Linear is a great solution for software teams to track and
+manage issues at a single place. The app is clean and works really
+well. Linear helps teams maintain productivity on the top.
+
+So I decided to build a linear clone! Introducing SimpleIssue.
+It is just like linear but with fewer features ofcourse. I learnt a
+lot of stuff so far and I have tried my best to apply it the best way possible.
+
+## What is an 'issue' in software engineering?
+
+In software engineering, an issue can be defined as a piece of
+work that needs to be done. An issue can be a bug, a feature,
+or an improvement to the product. A lot of times issues are mismanaged
+and not well maintained. To develop high quality products, it is
+really important that software teams maintain a good track of
+issues.
+
+## What is the tech stack?
+
+Well it is written in my favorite language of course, TypeScript.
+I spent a lot of time on designing the database schema which is powered
+by [Prisma](https://www.prisma.io/).
+
+I used [React Table](https://react-table.tanstack.com/) to efficiently
+render tables in the Next.JS application.
+I'm a great admirer of Tanner Linsley's work on React Packages ecosystem.
+The DX, performance and documentation are of amazing quality.
+It is a great tool to do tables in react! And trust me, tables
+are not fun as they look.
+
+## What did I learn when building this issue tracker?
+
+Tables are important. I learnt how to properly use a table,
+map data into the table, learnt to search the table contents and
+pipe it through (the search queries ofcourse) Debounce to avoid unneccessary re-renders.
+
+In bigger apps, state management does make sense. I used Zustand
+to management the current application state, current issue state
+and list of issues. It really works well with TypeScript and the API
+is easy to use.
+
+## Some features
+
+So with with SimpleIssue, you can create infinite organizations,
+add members to them, and create and manage issues.
+
+Optimistic UI. No more loading spinners, the UI is updated before the
+data is even fetched.
+
+You can also comment on issue, change its Priority ("we want it done by friday, and yes your holiday is cancelled").
+as well as project status.
+
+All tables are fully paginated, searchable and sortable (pun-intended)
+
+## What is lacking
+
+Well ofcourse, I am missing on a lot of features, but
+I am sure you will find them in the future! Stuff like user
+issue assignment need email notifications.
+A lot of features like team management, project management
+can be added to improve this app.
+
+## Try it out!
+
+I have put a lot of efforts into making it as nice as possible.
+You can use these credentials to login:
+
+- email: root@simpleissue.com
+- password: root_user
+
+## Screenshots for the lazy.
+
+Alright! you can view the screenshots of the app here.
+
+<SplitImage>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/simpleissue/1.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/simpleissue/2.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+  </Split>
+  <Split>
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/simpleissue/4.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+    <LightBoxImage
+      alt={`My computer desk`}
+      src={'/static/images/projects/simpleissue/3.png'}
+      width={1280}
+      height={720}
+      priority
+      objectFit="cover"
+    />
+  </Split>
+</SplitImage>
