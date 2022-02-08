@@ -25,7 +25,7 @@ export default function BlogPostCard({ title, slug, gradient }) {
             </h4>
           </div>
           <div className="flex items-center text-gray-800 dark:text-gray-200 capsize">
-            <svg
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"
@@ -44,9 +44,10 @@ export default function BlogPostCard({ title, slug, gradient }) {
                 strokeWidth={2}
                 d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
               />
-            </svg>
-            <span className="ml-2 align-baseline capsize">
-              {views ? new Number(views).toLocaleString() : '–––'}
+            </svg> */}
+            <span className="font-medium align-baseline capsize">
+              Read More
+              {/* {views ? new Number(views).toLocaleString() : '–––'} */}
             </span>
           </div>
         </div>

@@ -29,10 +29,7 @@ export default function Blog({
           Blog
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          {/* {`I've been writing online since 2014, mostly about web development and tech careers.
-            In total, I've written ${posts.length} articles on this site.
-            Use the search below to filter by title.`} */}
-          {`I have been thinking of writing blogs from a while now. I have drafted a few of them.`}
+          {`I write about software development, programming, tech and my personal life.`}
         </p>
         <div className="relative w-full mb-4">
           <input
@@ -57,29 +54,6 @@ export default function Blog({
             />
           </svg>
         </div>
-        {!searchValue && (
-          <>
-            <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-              Most Popular
-            </h3>
-            <p>I'll publish blogs very soon</p>
-            {/* <BlogPost
-              title="Everything I Know About Style Guides, Design Systems, and Component Libraries"
-              summary="A deep-dive on everything I've learned in the past year building style guides, design systems, component libraries, and their best practices."
-              slug="style-guides-component-libraries-design-systems"
-            />
-            <BlogPost
-              title="How Stripe Designs Beautiful Websites"
-              summary="Examining the tips and tricks used to make Stripe's website design a notch above the rest."
-              slug="how-stripe-designs-beautiful-websites"
-            />
-            <BlogPost
-              title="Creating a Monorepo with Lerna & Yarn Workspaces"
-              summary="In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process."
-              slug="monorepo-lerna-yarn-workspaces"
-            /> */}
-          </>
-        )}
         <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
           All Posts
         </h3>

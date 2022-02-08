@@ -88,17 +88,17 @@ export default function Home({ videos }) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
-            title="Get started with Docker and Next.JS [Currently writing]"
-            slug="style-guides-component-libraries-design-system"
+            title="Getting started with Typescript on the backend with Node.js and Express"
+            slug="getting-started-with-typescript-on-the-backend-with-nodejs-and-express"
             gradient="from-[#D8B4FE] to-[#818CF8]"
           />
           <BlogPostCard
-            title="Use HTTPS for local development! [Currently writing]"
-            slug="react-state-management"
+            title="Type-safe GraphQL Server with Pothos (Formerly GiraphQL)"
+            slug="type-safe-graphql-server-with-pothos-formerly-giraphql"
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
-            title="Typesafe GraphQL with GiraphQL [Currently writing]"
+            title="Use HTTPS for local development [Currently writing]"
             slug="backend"
             gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           />

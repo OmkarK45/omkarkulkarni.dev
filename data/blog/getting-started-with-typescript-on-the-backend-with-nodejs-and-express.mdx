@@ -1,0 +1,256 @@
+---
+title: 'Getting started with Typescript on the backend with Node.js and Express'
+publishedAt: '2022-02-08'
+summary: 'Learn how to scaffold a Node.js backend for a safer, robust and type-safe APIs with Typescript'
+image: '/static/images/getting-started-with-typescript-on-the-backend-with-nodejs-and-express/banner.jpg'
+---
+
+<BlurImage
+  src="/static/images/getting-started-with-typescript-on-the-backend-with-nodejs-and-express/banner.jpg"
+  alt="Banner Image"
+  width="1280"
+  height="720"
+  objectFit="cover"
+/>
+
+There are lot of guides on the internet about setting up Typescript with Node.js -Express server. They miss out on a lot of stuff such as hot reloading, compilation, and deployment.
+
+We will also dive deep into explanation of small but important options. This would serve as (pun-intended :P) a one stop guide to setup Node.JS-Express API server with Typescript!
+
+So let's get started 😎
+
+## Setting up our project
+
+I will be using VS Code for this project setup which is fairly common and really intuitive IDE. Run the following command to create a new folder
+
+```bash
+mkdir node-express-ts
+```
+
+and then `cd` into it
+
+```bash
+cd node-express-ts
+```
+
+## Creating package.json
+
+Now we will need to generate a `package.json` file which will be required to install our dependencies, manage our start scripts, etc
+
+```bash
+npm init
+```
+
+Now simply enter the relevant info in the terminal. Note that we are not particularly interested in repository section of package.json so feel free to press enter when it asks about it
+
+```json
+{
+  "name": "node-express-ts",
+  "version": "1.0.0",
+  "description": "Express, Node.js with TypeScript Starter",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "your name",
+  "license": "MIT"
+}
+```
+
+### Installing TypeScript 📦
+
+Let us go ahead and install Typescript in our project. You will need to run the following command to install Typescript.
+
+```bash
+yarn add typescript
+```
+
+### Setting up `tsconfig.json` 📜
+
+It is fine if you don't have typescript installed globally. Typically what it allows us to do is, the ability to run `tsc` command from terminal.
+
+It is recommended that you generate a `tsconfig.json` via tsc command. It provides some good out of the box defaults.
+
+Run the following command to generate a nice `tsconfig.json` file for us
+
+```bash
+npx tsc --init
+```
+
+You should see something like this in the terminal
+
+```bash
+message TS6071: Successfully created a tsconfig.json file.
+```
+
+Open `tsconfig.js`. You would see a lot of options. Don't worry about it as most of them are sensible defaults so you can leave them as it is. What we are particularly interested in is, `outDir`
+
+> `outDir` is the directory where our compiled Javascript code will reside. It is the code that is expelled out by `tsc` compiler command.
+
+So let's modify it to the following setting
+
+```json
+"outDir" : "dist"
+```
+
+```json
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "incremental": true,
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "./node_modules",
+    "./node_modules/*"
+  ]
+}
+```
+
+### More dependencies
+
+We would build our server on top of Express which is a lightweight and minimalistic web framework for Node.JS
+
+Let's run this command to get our dependencies installed
+
+```bash
+yarn add express cross-env cors dotenv helmet rimraf
+```
+
+- `cross-env` - Takes care of setting/injecting environment variables so we don't have to care about the platform we run our code on
+- `cors` - Ah yes the cors. I actually recommend you try and deploy both frontend and backend on the same domain so you don't have to deal with this monster of a error. But still I am including it for the sake of completeness. This package essentially enables cors on the server and allows incoming requests from domains we whitelist.
+- `dotenv` - Environment variables injector for Node.js. It picks up environment vars from .env file and injects into `process.env` of Node.js
+- `helmet` - As the name suggests, it adds some secure headers on your app.
+- `rimraf` - Enables us to delete dist folder between deploys so we can delete old code before new one is compiled. (It runs `rm -rf` behind the scenes)
+
+### Installing Typescript types for packages
+
+A lot of these packages are included with type definition files but some of them require them to be downloaded from a community managed repo, `DefinitelyTyped`
+
+Run the following command to install project dependencies
+
+```bash
+yarn add -D @types/node @types/express
+```
+
+### One final thing!
+
+We would need `nodemon` to watch for changes and essentially hot reload our server.
+Let's install nodemon
+
+```bash
+yarn add -D nodemon
+```
+
+### Commands configuration
+
+There are couple of commands involved with this setup.
+The final scripts would look like the following and I will explain what each script does.
+
+```json
+"scripts": {
+  "build": "rimraf dist && tsc",
+  "dev": "nodemon src/index.ts",
+  "start": "cross-env NODE_ENV=production node dist/src/index.js",
+  "prestart" : "npm run build",
+  "typecheck": "tsc --noEmit"
+}
+```
+
+- build - This command deletes the old dist compiled code.
+- dev - Script that hot reloads our server upon changes
+- start - Runs our server in production environment
+- prestart - This script is automatically picked up by npm and ran before `start` command.
+- typecheck - I always run this before committing on github. You don't want to break CI due to a type-error.
+
+If you have made this far, have a cookie. (Like seriously have one :P) 🍪
+
+### Creating files
+
+Create a `src` folder in the project with `index.ts` file.
+Add a `console.log('Hello from index.ts');` to check if everything is wired correctly.
+
+save the file and run `yarn dev`
+if you see
+
+```bash
+Hello from index.ts
+```
+
+mission success!! 🏆
+Now let's go ahead and do the sweet express setup.
+
+### Express setup.
+
+Add the following code to `index.ts`
+
+```ts
+import express, { Express, Request, Response } from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import helmet from 'helmet';
+
+// make sure to create an .env file in the root of the project!
+dotenv.config();
+
+const app: Express = express();
+const port = process.env.PORT || 5000;
+
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', async (req: Request, res: Response) => {
+  res.send(`
+		<h1>Welcome to Node Express TS API Server! </h1>
+		<p>
+		NODE_ENV: ${process.env.NODE_ENV}
+		PORT: ${port}
+		</p>
+	`);
+});
+
+app.listen(port, () => {
+  console.log(`Node.JS-Express API 📀 listening at http://localhost:${port}`);
+});
+```
+
+Here we have setup express to use helmet, cors, json() and urlencoded() middleware.
+
+We also setup a index route that essentially renders some HTML with NODE_ENV and PORT so we don't have to check terminal for it.
+
+### Deployment
+
+Go ahead and push this code on Github. Make sure to put `.env` and `node_modules`
+in `.gitignore`
+
+Now all you have to do is run `npm start` on your hosting service. It will build our app and serve it on the configured PORT. I use [Railway](https://railway.app) but you can use popular service like [Heroku](https://www.heroku.com/) to run Node.js API
+
+> If you encountered any error during setup, please make sure
+
+- You installed all the dependencies correctly
+- Typescript is at the latest version
+- Delete the `dist` folder and try again
+
+### Verdict
+
+We saw how to setup node.js API with Typescript from scratch till deployment. I think Typescript is an amazing language and it does make a lot sense to use it on the server because of less context switching.
+
+### Further improvements
+
+- You can add cookie-parser middleware that enables express server to read/parse and send cookies.
+
+Hope you enjoyed this tutorial! Follow me on [Twitter](https://mobile.twitter.com/omkar_k45) and visit my [Portfolio](https://omkarkulkarni.vercel.app) to know more about me.
+Read my [previous blog](https://omkarkulkarni.hashnode.dev/type-safe-graphql-server-with-pothos-formerly-giraphql) about an amazing GraphQL Schema builder!
+
+Happy coding 😎

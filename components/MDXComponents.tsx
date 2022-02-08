@@ -13,6 +13,21 @@ import { BlurImage } from 'components/BlurImage';
 
 import React from 'react';
 import { LightBoxImage } from './LightboxImage';
+import clsx from 'clsx';
+
+export function Pre(props: React.ComponentPropsWithRef<'pre'>) {
+  return (
+    <pre {...props}>
+      {props.children}
+      <style jsx>{`
+        pre {
+          position: relative;
+          border-radius: 8px;
+        }
+      `}</style>
+    </pre>
+  );
+}
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -40,13 +55,15 @@ function Code(props: React.ComponentProps<'code'>) {
     ? props.className.replace('language-', '').replace(' code-highlight', '')
     : null;
   return (
-    <code {...props} className="relative">
-      {language && (
-        <div className="absolute -top-5 px-3 py-1 bg-gray-800 text-white border border-t-0 border-gray-600 rounded-b-md left-0">
-          <span className="font-medium  select-none ">{language}</span>
-        </div>
-      )}
-      <div className="mt-5">{props.children}</div>
+    <code {...props}>
+      <span className={clsx('inline-block', language && 'mt-5')}>
+        {language && (
+          <div className="absolute top-0 mb-10 px-3 py-1 bg-gray-800 text-white border border-t-0 border-gray-600 rounded-b-md left-0">
+            <span className="font-medium select-none ">{language}</span>
+          </div>
+        )}
+        {props.children}
+      </span>
     </code>
   );
 }
@@ -64,7 +81,8 @@ const MDXComponents = {
   SplitImage,
   Split,
   LightBoxImage,
-  BlurImage
+  BlurImage,
+  pre: Pre
 };
 
 export default MDXComponents;
