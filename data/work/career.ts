@@ -12,12 +12,12 @@ export const career: Array<Career> = [
   {
     title: 'neend.app',
     description:
-      "I'm currently working as a React Native Intern for Neend.app. React Native is something I always wanted to explore and this is perfect way to go about it!",
+      "I'm currently working as a frontend engineering intern. I am currently focusing on React Native development of the app.",
     time: 'Dec 2021 - Present',
     type: 'Frontend Development Intern',
     url: 'https://neend.app/',
     tech: ['React Native', 'AWS', 'Firebase', 'Rust', 'Redux'],
-    logo: 'https://neend.app/static/media/Neend%20Logo.4b792aa0.svg'
+    logo: 'https://pbs.twimg.com/profile_images/1490584086959648768/dkUZt-U4_400x400.jpg'
   },
   {
     title: 'neoG Camp.',
