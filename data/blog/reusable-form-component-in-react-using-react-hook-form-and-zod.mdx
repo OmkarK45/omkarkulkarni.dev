@@ -1,0 +1,290 @@
+---
+title: 'Reusable form component in react using React Hook Form 🎣 and Zod 🛡'
+publishedAt: '2022-02-11'
+summary: 'React Hook Form embraces uncontrolled inputs, minimizes unnecessary renders and is battery packed with features 🔋⚡'
+image: '/static/images/reusable-form-component-in-react-using-react-hook-form-and-zod/banner.jpg'
+---
+
+<BlurImage
+  src="/static/images/reusable-form-component-in-react-using-react-hook-form-and-zod/banner.jpg"
+  alt="Banner Image"
+  width="1280"
+  height="720"
+  objectFit="cover"
+/>
+
+Forms in react. Aaaa! Tears. 😢 Doing forms in react can get very tricky if the number of input fields increase, you add 3rd party fancy select input, and over top of that, you now need your fields to be validated. As you can see, this quickly becomes a state management hell.
+
+[React Hook Form](https://react-hook-form.com/) is an elegant solution to manage forms in react. It provides an `useForm` hook which we will take a look at in a minute.
+React Hook Form takes care of form state, field validation, error states and much more.
+
+### What we would be building?
+
+We will create a `useForm` hook on top of React Hook Form's `useForm` hook and a `<Form/>` component. We will also create an `<Input />` component that is reusable and will show us form validation errors (if-any).
+
+### Dependencies
+
+We will require handful of dependencies for this. The very first being typescript.
+
+- React (with Typescript)
+- react-hook-form
+- Hook form resolvers (A helper library to resolve zod schema)
+- zod (validation library)
+
+#### About Zod
+
+[Zod](https://github.com/colinhacks/zod) is a library to perform typescript-first schema validation with static type inference. You can declare a schema that would be the shape of the object you wish to validate against.
+
+For eg. a person object schema can be defined as follows
+
+```ts
+import { z } from 'zod';
+
+const personSchema = z.object({
+  // field, its type and custom constraint with validation messages!
+  firstName: z.string().min(1, 'First Name must be atleast 1 character long.')
+});
+```
+
+#### Install dependencies
+
+Go ahead and spin up a fresh react with typescript template using CRA or Vite (👍Recommended)
+
+Run the following command to install these dependencies. I use yarn but you can use npm, pnpm etc.
+
+```bash
+yarn add react-hook-form zod @hookform/resolvers
+```
+
+### Creating our own `useForm` hook
+
+Go ahead and create a file `form.tsx` in your components folder.
+
+```jsx
+// function to resolve zod schema we provide
+import { zodResolver } from '@hookform/resolvers/zod'
+
+// We will fully type `<Form />` component by providing component props and fwding // those
+import { ComponentProps } from 'react'
+
+import {
+    // we import useForm hook as useHookForm
+	useForm as useHookForm,
+    // typescript types of useHookForm props
+	UseFormProps as UseHookFormProps,
+    // context provider for our form
+	FormProvider,
+    // return type of useHookForm hook
+	UseFormReturn,
+    // typescript type of form's field values
+	FieldValues,
+    // type of submit handler event
+	SubmitHandler,
+    // hook that would return errors in current instance of form
+	useFormContext,
+} from 'react-hook-form'
+
+// Type of zod schema
+import { ZodSchema, TypeOf } from 'zod'
+
+
+// We provide additional option that would be our zod schema.
+interface UseFormProps<T extends ZodSchema<any>>
+	extends UseHookFormProps<TypeOf<T>> {
+	schema: T
+}
+
+export const useForm = <T extends ZodSchema<any>>({
+	schema,
+	...formConfig
+}: UseFormProps<T>) => {
+	return useHookForm({
+		...formConfig,
+		resolver: zodResolver(schema),
+	})
+}
+```
+
+So plenty of things going around here. We created an interface for the `useForm` props. The props extend the existing react-hook-form props but the additional difference is, we provide zod schema to it as well.
+
+This makes sure the returned stuff from `useForm` hook is correctly typed according to the zod schema (and we will take a look at how to use it in a minute).
+
+#### Creating the `<Form />` component
+
+Now that we created the `useForm` hook, we will create a `<Form />` component that would make use of the `useForm` returned values
+
+```jsx
+
+// we omit the native `onSubmit` event in favor of `SubmitHandler` event
+// the beauty of this is, the values returned by the submit handler are fully typed
+
+interface FormProps<T extends FieldValues = any>
+	extends Omit<ComponentProps<'form'>, 'onSubmit'> {
+	form: UseFormReturn<T>
+	onSubmit: SubmitHandler<T>
+}
+
+export const Form = <T extends FieldValues>({
+	form,
+	onSubmit,
+	children,
+	...props
+}: FormProps<T>) => {
+	return (
+		<FormProvider {...form}>
+          {/* the `form` passed here is return value of useForm() hook */}
+			<form onSubmit={form.handleSubmit(onSubmit)} {...props}>
+				<fieldset
+                     {/* We disable form inputs when we are submitting the form!! A tiny detail
+                           that is missed a lot of times */}
+					disabled={form.formState.isSubmitting}
+				>
+					{children}
+				</fieldset>
+			</form>
+		</FormProvider>
+	)
+}
+```
+
+#### A component to show error!
+
+We will render a small `<span />` with the respective `<Input />` field.
+
+```jsx
+export function FieldError({ name }: { name?: string }) {
+  // the useFormContext hook returns the current state of hook form.
+  const {
+    formState: { errors }
+  } = useFormContext();
+
+  if (!name) return null;
+
+  const error = errors[name];
+
+  if (!error) return null;
+
+  return <span>{error.message}</span>;
+}
+```
+
+#### One last thing
+
+Now that we have created our form hook, a form component and error component, we now need a reusable input field.
+Create a file named `input.tsx` with following snippet
+
+```jsx
+
+import { ComponentProps, forwardRef } from 'react'
+import { FieldError } from './Form'
+
+interface InputProps {
+   label: string;
+}
+
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  { label, type = "text", ...props },
+  ref
+) {
+  return (
+    <div>
+      <label>{label}</label>
+      <input type={type} ref={ref} {...props} />
+      <FieldError name={props.name} />
+    </div>
+  );
+});
+
+```
+
+We make to use `forwardRef`. Using `forwardRef` in React gives the child component a reference to a DOM element created by its parent component. This then allows the child to read and modify that element anywhere it is being used.
+
+If you have come along this far, have a medal! 🥇
+
+### How to use?
+
+Suppose you have a signup form with 4 fields. viz. first name, username, email and password. Pretty standard stuff right? Let's see how this abstraction will make our work ez-pzee 😎
+
+/somewhere/in-your-code/signup.tsx
+
+```jsx
+// make sure to import it properly !
+import { Form, useForm } from '../form/form';
+import { z } from 'zod';
+
+// lets declare our validation and shape of form
+// zod takes care of email validation, it also supports custom regex! (only if I could understand this language of gods 😂)
+
+const signUpFormSchema = z.object({
+  firstName: z.string().min(1, 'First Name must be atleast 1 characters long!'),
+  username: z
+    .string()
+    .min(1, 'Username must be atleast 1 characters long!')
+    .max(10, 'Consider using shorter username.'),
+  email: z.string().email('Please enter a valid email address.'),
+  password: z
+    .string()
+    .min(6, 'Please choose a longer password')
+    .max(256, 'Consider using a short password')
+  // add your fancy password requirements 👿
+});
+
+export function SignUpForm() {
+  const form = useForm({
+    schema: signUpFormSchema
+  });
+
+  return (
+    <Form
+      form={form}
+      onSubmit={(values) => alert('form submitted with', values)}
+    >
+      <Input
+        label="Your first name"
+        type="text"
+        placeholder="John"
+        {...form.register('firstName')}
+      />
+      <Input
+        label="Choose username"
+        type="text"
+        placeholder="im_john_doe"
+        {...form.register('username')}
+      />
+      <Input
+        label="Email Address"
+        type="email"
+        placeholder="you@example.com"
+        {...form.register('email')}
+      />
+      <Input
+        label="Password"
+        type="password"
+        placeholder="Your password (min 6)"
+        {...form.register('password')}
+      />
+      <button type="submit">Submit </button>
+    </Form>
+  );
+}
+```
+
+Note that we have not written a single if-else loop, any useRef or useState for that matter to track error state, validation state or form state.
+
+I kept it free of any styling so we can focus (pun-intended :P) on what matters.
+
+Using this pattern means less unnecessary re-rendering of components.
+
+### Try on Stackblitz ⚡
+
+You can try it [here](https://stackblitz.com/edit/react-ts-hc3u5a?file=signup.tsx)
+
+### Verdict
+
+We saw, how easy it is to abstract away a form component to make it simple to use but at the same time, as safe as possible.
+
+If you like this blog, please let me know in the comments.
+Already use react hook form? let me know any specific patterns you follow.
+
+Follow me on [twitter](https://mobile.twitter.com/omkar_k45)
+Read this blog and see my projects on my [portfolio](https://omkarkulkarni.vercel.app)

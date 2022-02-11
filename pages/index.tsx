@@ -98,8 +98,8 @@ export default function Home({ videos }) {
             gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
-            title="Use HTTPS for local development [Currently writing]"
-            slug="backend"
+            title="Reusable form component in react using React Hook Form 🎣 and Zod 🛡"
+            slug="reusable-form-component-in-react-using-react-hook-form-and-zod"
             gradient="from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]"
           />
         </div>
