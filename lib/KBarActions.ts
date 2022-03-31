@@ -35,7 +35,7 @@ export const actions: Array<Action> = [
     keywords: 'resume works experience internship hire',
     perform: () =>
       window.open(
-        'https://drive.google.com/file/d/1At_ngmLUVgGqEI7RMCpU7ymysQxnnaYM/view?usp=sharing',
+        'https://drive.google.com/file/d/1T6w5Or3R-ewtz2WnStKjAYfUYhoEVh8m/view?usp=sharing',
         '_blank'
       ),
     icon: HiOutlineDownload,
