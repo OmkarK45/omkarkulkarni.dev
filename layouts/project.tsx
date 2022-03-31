@@ -4,7 +4,7 @@ import { parseISO, format } from 'date-fns';
 
 import Container from 'components/Container';
 import type { PropsWithChildren } from 'react';
-import type { Project } from '.contentlayer/types';
+import type { Project } from 'contentlayer/generated';
 import { SiGithub } from 'react-icons/si';
 import { ExternalLink } from 'components/Footer';
 import { HiOutlineCubeTransparent } from 'react-icons/hi';

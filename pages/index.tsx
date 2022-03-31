@@ -20,8 +20,6 @@ import { useTheme } from 'next-themes';
 import { ExternalLink } from 'components/Footer';
 
 export default function Home({ videos }) {
-  const { resolvedTheme, theme, setTheme } = useTheme();
-
   return (
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
@@ -37,7 +35,7 @@ export default function Home({ videos }) {
             <p className="text-gray-600 dark:text-gray-400 mb-4">
               I build end to end web applications using modern technologies.
               Checkout my blogs and projects. You can also{' '}
-              <ExternalLink href="https://drive.google.com/file/d/1At_ngmLUVgGqEI7RMCpU7ymysQxnnaYM/view?usp=sharing">
+              <ExternalLink href="https://drive.google.com/file/d/1T6w5Or3R-ewtz2WnStKjAYfUYhoEVh8m/view?usp=sharing">
                 download my resume.
               </ExternalLink>
             </p>

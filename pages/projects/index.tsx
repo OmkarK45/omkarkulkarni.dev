@@ -1,4 +1,4 @@
-import { allProjects } from '.contentlayer/data';
+import { allProjects } from 'contentlayer/generated';
 import { pick } from 'lib/utils';
 import type { InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
