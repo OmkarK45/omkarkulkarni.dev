@@ -16,7 +16,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <KBarProvider
         actions={actions}
         options={{
-          enableHistory: true
+          enableHistory: true,
+          disableScrollbarManagement: true
         }}
       >
         <ThemeProvider attribute="class">

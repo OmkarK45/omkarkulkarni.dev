@@ -6,7 +6,8 @@ import {
   KBarAnimator,
   KBarSearch,
   useMatches,
-  KBarResults
+  KBarResults,
+  ActionId
 } from 'kbar';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useMemo, useState } from 'react';
@@ -60,11 +61,15 @@ function RenderResults({ theme }: { theme: 'light' | 'dark' }) {
         return (
           <div>
             {isString ? (
-              <div className="px-4  py-2 uppercase opacity-50 text-xs font-semibold dark:text-gray-100">
+              <div
+                key={item}
+                className="px-4  py-2 uppercase opacity-50 text-xs font-semibold dark:text-gray-100"
+              >
                 {item}
               </div>
             ) : (
               <ResultItem
+                key={item.id}
                 action={item}
                 active={active}
                 currentRootActionId={rootActionId}
@@ -82,7 +87,7 @@ function RenderResults({ theme }: { theme: 'light' | 'dark' }) {
 interface ResultItemProps {
   action: ActionImpl;
   active: boolean;
-  currentRootActionId: string;
+  currentRootActionId: ActionId;
   theme: 'light' | 'dark';
 }
 
@@ -97,7 +102,7 @@ export const ResultItem = React.forwardRef(
   ) => {
     const ancestors = useMemo(() => {
       if (!currentRootActionId) return action.ancestors;
-
+      console.log('CALLED ');
       const index = action.ancestors.findIndex(
         (anchestor) => anchestor.id === currentRootActionId
       );
@@ -117,7 +122,7 @@ export const ResultItem = React.forwardRef(
         className={clsx(
           active &&
             'bg-gray-300/30 dark:bg-gray-300/30 text-gray-800 dark:text-gray-200',
-          'flex cursor-pointer  select-none items-center rounded-md mx-2 px-2 py-2'
+          'flex select-none items-center rounded-md mx-2 px-2 py-2'
         )}
       >
         <div className="flex gap-3 items-center w-full text-base">
@@ -132,26 +137,13 @@ export const ResultItem = React.forwardRef(
             )}
           />
           <div className="flex items-center justify-between w-full flex-1">
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className="flex flex-col">
               <div>
                 {ancestors.length > 0 &&
                   ancestors.map((ancestor) => (
                     <React.Fragment key={ancestor.id}>
-                      <span
-                        style={{
-                          opacity: 0.5,
-                          marginRight: 8
-                        }}
-                      >
-                        {ancestor.name}
-                      </span>
-                      <span
-                        style={{
-                          marginRight: 8
-                        }}
-                      >
-                        &rsaquo;
-                      </span>
+                      <span className="mr-2 opacity-50">{ancestor.name}</span>
+                      <span className="mr-2">&rsaquo;</span>
                     </React.Fragment>
                   ))}
                 <span className="flex-auto truncate text-base">
@@ -162,13 +154,13 @@ export const ResultItem = React.forwardRef(
                 <span className="text-xs">{action.subtitle}</span>
               )}
             </div>
-            {action.shortcut && (
+            {action.shortcut?.length ? (
               <div>
                 <span className="px-4 py-2 flex items-center justify-center rounded-xl bg-gray-200 dark:bg-gray-800">
                   {action.shortcut}
                 </span>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>

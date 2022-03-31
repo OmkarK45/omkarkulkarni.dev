@@ -29,29 +29,29 @@ const SECTIONS = {
 };
 
 export const actions: Array<Action> = [
-  {
-    id: 'download-resume',
-    name: 'Download my resume',
-    keywords: 'resume works experience internship hire',
-    perform: () =>
-      window.open(
-        'https://drive.google.com/file/d/1T6w5Or3R-ewtz2WnStKjAYfUYhoEVh8m/view?usp=sharing',
-        '_blank'
-      ),
-    icon: HiOutlineDownload,
-    section: SECTIONS.general
-  },
-  {
-    id: 'copy-url',
-    name: 'Copy URL',
-    keywords: 'url copy',
-    perform: () => {
-      const url = window.location.href;
-      navigator.clipboard.writeText(url);
-    },
-    icon: HiOutlineDuplicate,
-    section: SECTIONS.general
-  },
+  // {
+  //   id: 'download-resume',
+  //   name: 'Download my resume',
+  //   keywords: 'resume works experience internship hire',
+  //   perform: () =>
+  //     window.open(
+  //       'https://drive.google.com/file/d/1T6w5Or3R-ewtz2WnStKjAYfUYhoEVh8m/view?usp=sharing',
+  //       '_blank'
+  //     ),
+  //   icon: HiOutlineDownload,
+  //   section: SECTIONS.general
+  // },
+  // {
+  //   id: 'copy-url',
+  //   name: 'Copy URL',
+  //   keywords: 'url copy',
+  //   perform: () => {
+  //     const url = window.location.href;
+  //     navigator.clipboard.writeText(url);
+  //   },
+  //   icon: HiOutlineDuplicate,
+  //   section: SECTIONS.general
+  // },
   {
     id: 'blog',
     name: 'Writing',
