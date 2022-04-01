@@ -76,7 +76,7 @@ export default function ProjectCard({
                       <span className="mr-1">
                         <Icon className="h-4 w-4" />
                       </span>
-                      <p className="text-xs capitalize"> {stackItem}</p>
+                      {/* <p className="text-xs capitalize"> {stackItem}</p> */}
                     </span>
                   );
                 })}

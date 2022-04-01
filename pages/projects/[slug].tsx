@@ -1,6 +1,6 @@
 import { GetStaticPropsContext } from 'next';
 
-import { allProjects } from '.contentlayer/data';
+import { allProjects } from 'contentlayer/generated';
 import ProjectLayout from 'layouts/project';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import components from 'components/MDXComponents';
