@@ -24,5 +24,15 @@ module.exports = withContentlayer()({
     }
 
     return config;
+  },
+
+  async redirects() {
+    return [
+      {
+        source: '/resume',
+        destination: '/Omkar_Kulkarni_7387710594_Resume.pdf',
+        permanent: true
+      }
+    ];
   }
 });
