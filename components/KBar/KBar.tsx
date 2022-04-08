@@ -24,18 +24,10 @@ export function KBarPortal() {
 
   return (
     <BaseKBarPortal>
-      <KBarPositioner
-        className={clsx(
-          'fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity',
-          {
-            'bg-opacity-30': theme === 'dark',
-            'bg-gray-700': theme === 'dark'
-          }
-        )}
-      >
+      <KBarPositioner className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity backdrop-blur dark:bg-opacity-30 dark:bg-gray-700">
         <KBarAnimator
           className={clsx(
-            'w-full max-w-2xl transform divide-y divide-gray-500 divide-opacity-20 overflow-hidden rounded-xl shadow-2xl transition-all bg-white/80 dark:bg-gray-900 dark:bg-opacity-90 !backdrop-blur !backdrop-filter'
+            'w-full max-w-2xl transform divide-y divide-gray-500 divide-opacity-20 overflow-hidden rounded-xl shadow-2xl transition-all bg-white/90 dark:bg-gray-900 dark:bg-opacity-90 !backdrop-blur !backdrop-filter'
           )}
         >
           <KBarSearch className="outline-none h-12 w-full border-0 bg-transparent pl-5 pr-4 text-gray-900 dark:text-white placeholder-gray-500 focus:ring-0 sm:text-sm" />
@@ -55,30 +47,24 @@ function RenderResults({ theme }: { theme: 'light' | 'dark' }) {
   return (
     <KBarResults
       items={results}
-      onRender={({ item, active }) => {
-        const isString = typeof item === 'string';
-
-        return (
-          <div>
-            {isString ? (
-              <div
-                key={item}
-                className="px-4  py-2 uppercase opacity-50 text-xs font-semibold dark:text-gray-100"
-              >
-                {item}
-              </div>
-            ) : (
-              <ResultItem
-                key={item.id}
-                action={item}
-                active={active}
-                currentRootActionId={rootActionId}
-                theme={theme}
-              />
-            )}
+      onRender={({ item, active }) =>
+        typeof item === 'string' ? (
+          <div
+            key={item}
+            className="px-4  py-2 uppercase opacity-50 text-xs font-semibold dark:text-gray-100"
+          >
+            {item}
           </div>
-        );
-      }}
+        ) : (
+          <ResultItem
+            key={item.id}
+            action={item}
+            active={active}
+            currentRootActionId={rootActionId}
+            theme={theme}
+          />
+        )
+      }
     />
   );
 }
