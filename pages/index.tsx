@@ -18,28 +18,82 @@ import { Career, career } from 'data/work/career';
 import CareerCard from 'components/CareerCard';
 import { useTheme } from 'next-themes';
 import { ExternalLink } from 'components/Footer';
+import clsx from 'clsx';
+import { Transition } from '@headlessui/react';
 
 export default function Home({ videos }) {
+  const redGradient =
+    'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
+
   return (
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col pr-8">
-            <h1 className="  font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
+            <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
               Hi, I'm Omkar Kulkarni.
             </h1>
-
-            <h2 className="text-gray-700 dark:text-gray-200 mb-4">
-              Software Developer specializing in Web Development.{' '}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              I build end to end web applications using modern technologies.
-              Checkout my blogs and projects. You can also{' '}
-              <Link href="/resume">download my resume.</Link>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              I love to develop{' '}
+              <span
+                className={clsx(
+                  redGradient,
+                  'transition-transform duration-500 ease-in-out hover:duration-300'
+                )}
+              >
+                best in class apps
+              </span>
+              <span>, obsessed with designing</span> {'\n'}
+              <span
+                className={clsx(
+                  'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
+                  'after:bg-gradient-to-r'
+                )}
+              >
+                fluid interfaces
+              </span>
+              , and{' '}
+              <span className="group relative">
+                <span
+                  className={clsx(
+                    'absolute -inset-0',
+                    'bg-gradient-to-r from-blue-500 to-purple-400',
+                    'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
+                    'animate-tilt transition-all duration-300 ease-in-out'
+                  )}
+                ></span>
+                <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
+                  perfectionist
+                </span>
+              </span>{' '}
+              at heart.
+            </p>
+            <p className="mt-4 text-gray-600 dark:text-gray-400 text-lg">
+              Currently working at{' '}
+              <a
+                className={clsx(
+                  'bg-[linear-gradient(110deg,#F6A6A6,45%,#f5f5f5,55%,#F6A6A6)] bg-[length:250%_100%] dark:bg-[linear-gradient(110deg,#F6A6A6,45%,#171717,55%,#F6A6A6)]',
+                  'inline-block bg-clip-text text-transparent',
+                  'transition-transform duration-200 ease-in-out hover:scale-105'
+                )}
+              >
+                neendapp.{' '}
+              </a>
+              <Link href="/resume" passHref>
+                <span className="cursor-pointer">
+                  {' '}
+                  You can also
+                  <span className="animate-text-shimmer dark:bg-clip-text dark:text-transparent dark:bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
+                    {' '}
+                    download{' '}
+                  </span>
+                  my resume.
+                </span>
+              </Link>
             </p>
 
-            <div className=" text-gray-600 dark:text-gray-400 mb-16 ">
-              <div>I currently work with &nbsp;</div>
+            <div className="mt-5 text-gray-600 dark:text-gray-400 mb-16 ">
+              <div>My current stack &nbsp;</div>
               <div className="mt-2">
                 <div className="inline-flex items-center space-x-2 mr-2">
                   <SiReact color={'#61DBFB'} />
@@ -100,9 +154,14 @@ export default function Home({ videos }) {
           />
         </div>
         <Link href="/blog">
-          <a className="flex items-center mt-8 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6">
-            Read all posts{' '}
-            <HiOutlineArrowNarrowRight className="h-6 w-6 ml-2" />
+          <a className="group mt-8 text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200">
+            Explore all blogs{' '}
+            <span
+              aria-hidden="true"
+              className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
+            >
+              →
+            </span>
           </a>
         </Link>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
@@ -139,9 +198,14 @@ export default function Home({ videos }) {
           />
         </motion.ul>
         <Link href="/projects">
-          <a className="flex items-center mt-6 text-gray-600 dark:text-gray-400 leading-7 rounded-lg hover:text-gray-800 dark:hover:text-gray-200 transition-all h-6">
+          <a className="group text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200">
             See all projects{' '}
-            <HiOutlineArrowNarrowRight className="h-6 w-6 ml-2" />
+            <span
+              aria-hidden="true"
+              className="inline-block translate-x-0 group-hover:translate-x-1 transition-transform ease-in-out duration-200"
+            >
+              →
+            </span>
           </a>
         </Link>
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">

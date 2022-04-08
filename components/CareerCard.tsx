@@ -36,9 +36,6 @@ const CareerCard = ({
                 <span className="text-lg font-medium text-gray-900 dark:text-gray-200">
                   {title}
                 </span>
-                <span className="md:ml-3 inline-flex items-center px-3 rounded-full text-sm font-medium bg-pink-100 dark:bg-pink-700 dark:text-pink-100 text-pink-800">
-                  Startup <HiLightningBolt className="text-md ml-2" />
-                </span>
               </ExternalLink>
               <p className="text-sm text-secondary">{time}</p>
             </div>

@@ -10,6 +10,7 @@ import MobileMenu from 'components/MobileMenu';
 import { GradientBar } from './GradientBar';
 import { ImCommand } from 'react-icons/im';
 import { useKBar } from 'kbar';
+import clsx from 'clsx';
 function NavItem({ href, text }) {
   const router = useRouter();
   const isActive = router.asPath === href;
@@ -78,8 +79,8 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <div className="flex flex-col justify-center px-8">
-        <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">
+      <div className="flex flex-col justify-center px-8 relative">
+        <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16  text-gray-900 bg-gray-50  dark:bg-gray-900 dark:text-gray-100">
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
@@ -138,10 +139,7 @@ export default function Container(props) {
           </div>
         </nav>
       </div>
-      <main
-        id="skip"
-        className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
-      >
+      <main id="skip" className="flex flex-col justify-center px-8">
         {children}
         <Footer />
       </main>

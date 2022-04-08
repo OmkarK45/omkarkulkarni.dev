@@ -7,6 +7,7 @@ import { useAnalytics } from 'lib/analytics';
 import { KBarProvider } from 'kbar';
 import { actions } from 'lib/KBarActions';
 import { KBarPortal } from 'components/KBar/KBar';
+import clsx from 'clsx';
 
 export default function App({ Component, pageProps }: AppProps) {
   useAnalytics();
