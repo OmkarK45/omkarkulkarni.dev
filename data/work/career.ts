@@ -13,7 +13,7 @@ export const career: Array<Career> = [
     title: 'neend.app',
     description:
       "I'm currently working as a frontend engineering intern. I am currently focusing on React Native development of the app.",
-    time: 'Dec 2021 - Present',
+    time: 'Dec 2021 - Apr 2022',
     type: 'Frontend Development Intern',
     url: 'https://neend.app/',
     tech: ['React Native', 'AWS', 'Firebase', 'Rust', 'Redux'],
