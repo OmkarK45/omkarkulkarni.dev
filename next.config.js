@@ -34,9 +34,8 @@ module.exports = withContentlayer()({
         permanent: true
       },
       {
-        source: '/lp3',
-        destination:
-          'https://www.notion.so/okayish/LP3-a3917501ab36460c8b304ef2e08415bf',
+        source: '/gg',
+        destination: '/ggwp.zip',
         permanent: true
       }
     ];
