@@ -69,7 +69,7 @@ export default function Home({ videos }) {
               at heart.
             </p>
             <p className="mt-4 text-gray-600 dark:text-gray-400 text-lg">
-              Currently working at{' '}
+              Previously @{' '}
               <a
                 className={clsx(
                   'bg-[linear-gradient(110deg,#F6A6A6,45%,#f5f5f5,55%,#F6A6A6)] bg-[length:250%_100%] dark:bg-[linear-gradient(110deg,#F6A6A6,45%,#171717,55%,#F6A6A6)]',
