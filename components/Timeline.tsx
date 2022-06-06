@@ -123,6 +123,10 @@ export default function Timeline() {
       </h3>
       <Year>2022</Year>
       <ul>
+        <Step title="Joined smallcase as a full time SDE-I">
+          The engineering team at smallcase always fascinated me. I joined
+          smallcase in June.
+        </Step>
         <Step title="Left neend.app">
           I gathered enough experience when working at neendapp. I was able to
           build and maintain mobile applications in react-native. The reason I
@@ -133,23 +137,10 @@ export default function Timeline() {
       <ul>
         {' '}
         <Step title="Joined neend.app as a frontend development intern">
-          I wanted to work with early-stage companies to learn their culture. I
-          joined neend that aimed to solve a really cool problem with insomnia
-          among indians. I was able to learn a lot about how startups work in
+          I joined neend that aimed to solve a really cool problem with insomnia
+          among India. I was able to learn a lot about how startups work in
           general. I had to pick up react native from scratch to developp and
           maintain a mobile application.
-        </Step>
-        <Step title="Joined neoG Camp as Web Development Intern">
-          I joined neoG Camp as a Full stack web development intern. I worked
-          with other developers to work on a project that would help neoG Camp
-          admit new students into the bootcamp. This was my first time working
-          on a real world product that would be used by so many users.
-        </Step>
-        <Step title="Joined neoG Bootcamp.">
-          It was time to upskill and upgrade my skills to next level. I heard
-          about neoG Camp from my friends and I enrolled in the program. It is a
-          serious program that teaches you how to develop good coding habits.
-          Made a lot of friends and got a lot of experience.
         </Step>
       </ul>
 

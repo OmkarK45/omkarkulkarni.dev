@@ -27,73 +27,67 @@ export default function Home({ videos }) {
 
   return (
     <Container>
-      <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
+      <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-6">
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col pr-8">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
               Hi, I'm Omkar Kulkarni.
             </h1>
-            <p className="text-gray-600 dark:text-gray-400 text-lg">
-              I love to develop{' '}
-              <span
-                className={clsx(
-                  redGradient,
-                  'transition-transform duration-500 ease-in-out hover:duration-300'
-                )}
-              >
-                best in class apps
+            <div className="space-y-3 mt-2">
+              <span className="inline-flex">
+                <p className="text-gray-600 dark:text-gray-400 text-lg">
+                  I work as a software engineer at{' '}
+                  <ExternalLink href={'https://smallcase.com'}>
+                    smallcase
+                  </ExternalLink>
+                </p>
+                <span className="inline-flex  items-center ml-2">
+                  <Image
+                    src={'/static/images/smallcase.png'}
+                    height={20}
+                    width={20}
+                  />
+                </span>
               </span>
-              <span>, obsessed with designing</span> {'\n'}
-              <span
-                className={clsx(
-                  'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
-                  'after:bg-gradient-to-r'
-                )}
-              >
-                fluid interfaces
-              </span>
-              , and{' '}
-              <span className="group relative">
+              <p className="text-gray-600 dark:text-gray-400 text-lg">
+                I love to develop{' '}
                 <span
                   className={clsx(
-                    'absolute -inset-0',
-                    'bg-gradient-to-r from-blue-500 to-purple-400',
-                    'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
-                    'animate-tilt transition-all duration-300 ease-in-out'
+                    redGradient,
+                    'transition-transform duration-500 ease-in-out hover:duration-300'
                   )}
-                ></span>
-                <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
-                  perfectionist
+                >
+                  best in class apps
                 </span>
-              </span>{' '}
-              at heart.
-            </p>
-            <p className="mt-4 text-gray-600 dark:text-gray-400 text-lg">
-              Previously @{' '}
-              <a
-                className={clsx(
-                  'bg-[linear-gradient(110deg,#F6A6A6,45%,#f5f5f5,55%,#F6A6A6)] bg-[length:250%_100%] dark:bg-[linear-gradient(110deg,#F6A6A6,45%,#171717,55%,#F6A6A6)]',
-                  'inline-block bg-clip-text text-transparent',
-                  'transition-transform duration-200 ease-in-out hover:scale-105'
-                )}
-              >
-                neendapp.{' '}
-              </a>
-              <Link href="/resume" passHref>
-                <span className="cursor-pointer">
-                  {' '}
-                  You can also
-                  <span className="animate-text-shimmer dark:bg-clip-text dark:text-transparent dark:bg-[linear-gradient(110deg,#e2e8f0,45%,#1e293b,55%,#e2e8f0)] bg-[length:250%_100%]">
-                    {' '}
-                    download{' '}
+                <span>, obsessed with designing</span> {'\n'}
+                <span
+                  className={clsx(
+                    'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
+                    'after:bg-gradient-to-r'
+                  )}
+                >
+                  fluid interfaces
+                </span>
+                , and{' '}
+                <span className="group relative">
+                  <span
+                    className={clsx(
+                      'absolute -inset-0',
+                      'bg-gradient-to-r from-blue-500 to-purple-400',
+                      'rounded-lg opacity-20 blur group-hover:opacity-40 group-hover:blur-md',
+                      'animate-tilt transition-all duration-300 ease-in-out'
+                    )}
+                  ></span>
+                  <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
+                    perfectionist
                   </span>
-                  my resume.
-                </span>
-              </Link>
-            </p>
+                </span>{' '}
+                at heart.
+              </p>
+            </div>
 
-            <div className="mt-5 text-gray-600 dark:text-gray-400 mb-16 ">
-              <div>My current stack &nbsp;</div>
+            <div className="mt-3 text-gray-600 dark:text-gray-400 mb-16 ">
+              <div>My favorite tech &nbsp;</div>
               <div className="mt-2">
                 <div className="inline-flex items-center space-x-2 mr-2">
                   <SiReact color={'#61DBFB'} />
@@ -208,22 +202,23 @@ export default function Home({ videos }) {
             </span>
           </a>
         </Link>
-        <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
-          Work Experience
-        </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          My work experience so far.
-        </p>
-        <ul className="w-full space-y-2 divide-y divide-accent md:divide-y-0">
-          {career.map((c: Career, index) => (
-            <CareerCard
-              key={index}
-              last={index === career.length - 1}
-              career={c}
-            />
-          ))}
-        </ul>
-        <span className="h-16" />
+        <div>
+          <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+            Work Experience
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-4">
+            My work experience so far.
+          </p>
+          <ul className="w-full ">
+            {career.map((c: Career, index) => (
+              <CareerCard
+                key={index}
+                last={index === career.length - 1}
+                career={c}
+              />
+            ))}
+          </ul>
+        </div>
       </div>
     </Container>
   );
