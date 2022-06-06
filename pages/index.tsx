@@ -35,19 +35,12 @@ export default function Home({ videos }) {
             </h1>
             <div className="space-y-3 mt-2">
               <span className="inline-flex">
-                <p className="text-gray-600 dark:text-gray-400 text-lg">
+                <div className="text-gray-600 dark:text-gray-400 text-lg">
                   I work as a software engineer at{' '}
                   <ExternalLink href={'https://smallcase.com'}>
                     smallcase
-                  </ExternalLink>
-                </p>
-                <span className="inline-flex  items-center ml-2">
-                  <Image
-                    src={'/static/images/smallcase.png'}
-                    height={20}
-                    width={20}
-                  />
-                </span>
+                  </ExternalLink>{' '}
+                </div>
               </span>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
                 I love to develop{' '}
