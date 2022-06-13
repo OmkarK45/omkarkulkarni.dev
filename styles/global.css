@@ -341,7 +341,7 @@ input[type='email'] {
 .prose p code span { 
   font-family: 'MonoLisa';
   font-size: 12px;
-  @apply bg-gray-200 dark:bg-gray-700 rounded-md m-0.5 px-2 
+  @apply bg-gray-200 dark:bg-gray-700 rounded-md -mx-1 my-0.5 px-2 
 }
 
 
