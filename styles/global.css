@@ -328,6 +328,23 @@ input[type='email'] {
   font-weight: inherit;
 }
 
+.prose code { 
+ @apply border-none
+}
+.prose :where(code):not(:where([class~="not-prose"] *))::before{ 
+  content: none!important;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after{ 
+  content:  none !important;
+}
+.prose p code span { 
+  font-family: 'MonoLisa';
+  font-size: 12px;
+  @apply bg-gray-200 dark:bg-gray-700 rounded-md m-0.5 px-2 
+}
+
+
 table {
   display: block;
   max-width: fit-content;
