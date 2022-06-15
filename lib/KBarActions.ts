@@ -4,9 +4,6 @@ import router from 'next/router';
 import {
   HiOutlineCollection,
   HiOutlineDesktopComputer,
-  HiOutlineDownload,
-  HiOutlineDuplicate,
-  HiOutlineHeart,
   HiOutlinePencil,
   HiOutlineSparkles,
   HiOutlineTerminal
@@ -20,7 +17,6 @@ const SECTIONS = {
   dashboard: 'Dashboard',
   snippets: 'Snippets',
   home: 'Home',
-  about: 'About',
   uses: 'Uses',
   tweets: 'Tweets',
   goto: 'Go to',
@@ -102,15 +98,6 @@ export const actions: Array<Action> = [
     section: SECTIONS.goto,
     subtitle: 'Gear that I use that make me productive',
     icon: HiOutlineDesktopComputer
-  },
-  {
-    id: 'about',
-    name: 'About Me',
-    keywords: 'about me',
-    perform: () => router.push('/about'),
-    section: SECTIONS.goto,
-    subtitle: 'My story and my life so far.',
-    icon: HiOutlineHeart
   },
   {
     id: 'social-github',
