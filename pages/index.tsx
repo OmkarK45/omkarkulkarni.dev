@@ -49,7 +49,7 @@ export default function Home({ videos }) {
                 </div>
               </span>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                I have a passion for,{' '}
+                I have a passion for{' '}
                 <span
                   className={clsx(
                     redGradient,
@@ -58,7 +58,7 @@ export default function Home({ videos }) {
                 >
                   creating top-notch apps,{' '}
                 </span>
-                <span>an unwavering focus on </span> {'\n'}
+                <span>a focus on </span> {'\n'}
                 <span
                   className={clsx(
                     'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
@@ -67,7 +67,7 @@ export default function Home({ videos }) {
                 >
                   crafting seamless interfaces{' '}
                 </span>
-                and a deeply ingrained{' '}
+                and a deep{' '}
                 <span className="group relative">
                   <span
                     className={clsx(

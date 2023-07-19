@@ -1,8 +1,6 @@
 import Container from 'components/Container';
-import Tweet from 'components/Tweet';
-import { getTweets } from 'lib/twitter';
 
-export default function Tweets({ tweets }) {
+export default function Tweets({}) {
   return (
     <Container
       title="Tweets – Omkar Kulkarni"
@@ -17,18 +15,9 @@ export default function Tweets({ tweets }) {
           bit, so I wanted a place to publicly share what inspires me, makes me
           laugh, and makes me think.
         </p>
-        {tweets.map((tweet) => (
-          <Tweet key={tweet.id} {...tweet} />
-        ))}
+
+        <p>Due to Elon being cheesy, the API stopped working.</p>
       </div>
     </Container>
   );
 }
-
-export async function getStaticProps() {
-  const tweets = await getTweets(['935644892721762305']);
-
-  return { props: { tweets } };
-}
-
-// https://twitter.com/FlatEarthOrg/status/935644892721762305?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E935644892721762305%7Ctwgr%5E%7Ctwcon%5Es1_c10&ref_url=https%3A%2F%2Finterestingengineering.com%2F16-great-tweets-from-elon-musk-that-definitely-made-us-laugh

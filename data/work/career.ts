@@ -21,7 +21,7 @@ export const career: Array<Career> = [
   {
     title: 'neend.app',
     description:
-      'I worked with a really cool problem statement that aims to solve insomnia problems among Indians. Directly worked with founder and PM to understand product requirements. I picked up and learnt react native from ground up during my internship.',
+      'During my internship, I had the opportunity to work on a fascinating problem statement that aimed to address insomnia issues among the Indian population. I was fortunate to collaborate closely with the founder and product manager to gain a comprehensive understanding of the product requirements. One of the most exciting aspects of my internship was the chance to learn React Native from scratch, as it was directly relevant to the project I was working on.',
 
     time: 'Dec 2021 - May 2022 • 6 months',
     type: 'Frontend Development Intern',
