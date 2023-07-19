@@ -11,13 +11,23 @@ import { GradientBar } from './GradientBar';
 import { ImCommand } from 'react-icons/im';
 import { useKBar } from 'kbar';
 import clsx from 'clsx';
-function NavItem({ href, text }) {
+
+function NavItem({
+  href,
+  text,
+  disabled
+}: {
+  href: string;
+  text: string;
+  disabled?: boolean;
+}) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
   return (
     <NextLink href={href}>
       <a
+        aria-disabled={disabled}
         className={cn(
           isActive
             ? 'font-semibold text-gray-800 dark:text-gray-200'
@@ -87,9 +97,10 @@ export default function Container(props) {
           <div className="ml-[-0.60rem]">
             <MobileMenu />
             <NavItem href="/" text="Home" />
-            <NavItem href="/projects" text="Projects" />
-            <NavItem href="/dashboard" text="Dashboard" />
-            <NavItem href="/blog" text="Blog" />
+            <NavItem href="/projects" text="Craft" />
+            <NavItem href="/dashboard" text="Spotify Top 10" />
+            <NavItem href="/blog" text="Writing" />
+            <NavItem href="/books" text="Books" />
             <NavItem href="/snippets" text="Snippets" />
           </div>
           <div className="flex items-center space-x-2">

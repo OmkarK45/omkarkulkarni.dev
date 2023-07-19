@@ -1,10 +1,4 @@
-import Link from 'next/link';
-
-import Analytics from 'components/metrics/Analytics';
-import Newsletter from 'components/metrics/Newsletter';
 import Container from 'components/Container';
-import GitHub from 'components/metrics/Github';
-import Gumroad from 'components/metrics/Gumroad';
 import TopTracks from 'components/TopTracks';
 import { SiSpotify } from 'react-icons/si';
 

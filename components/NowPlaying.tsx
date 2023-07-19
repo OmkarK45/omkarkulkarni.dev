@@ -94,8 +94,8 @@ export default function NowPlaying() {
         </div>
 
         <a href={data?.songUrl}>
-          <div className="flex-1">
-            <p className="font-medium text-black dark:text-gray-100">
+          <div className="flex-1 w-full">
+            <p className="font-medium text-black dark:text-gray-100 truncate">
               {data?.isPlaying ? data.title : 'Not Listening'}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-300 max-w-max truncate">

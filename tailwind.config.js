@@ -1,5 +1,8 @@
 const { spacing, fontFamily } = require('tailwindcss/defaultTheme');
 
+/**
+ * @type {import('tailwindcss/tailwind-config').TailwindConfig }
+ **/
 module.exports = {
   mode: 'jit',
   content: ['./pages/**/*.tsx', './components/**/*.tsx', './layouts/**/*.tsx'],
@@ -105,5 +108,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio')
-  ]
+  ],
+  
 };

@@ -5,7 +5,6 @@ import {
   SiReact,
   SiTypescript
 } from 'react-icons/si';
-import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -16,52 +15,59 @@ import ProjectCard from 'components/ProjectCard';
 import { VideoLibrary, SocialMedia, Ecommerce } from 'components/Icons';
 import { Career, career } from 'data/work/career';
 import CareerCard from 'components/CareerCard';
-import { useTheme } from 'next-themes';
 import { ExternalLink } from 'components/Footer';
 import clsx from 'clsx';
-import { Transition } from '@headlessui/react';
 
 export default function Home({ videos }) {
   const redGradient =
     'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
-
   return (
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-6">
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col pr-8">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
-              Hi, I'm Omkar Kulkarni.
+              Hi, I'm Omkar!
             </h1>
             <div className="space-y-3 mt-2">
               <span className="inline-flex">
-                <div className="text-gray-600 dark:text-gray-400 text-lg">
-                  I work as a software engineer at{' '}
-                  <ExternalLink href={'https://smallcase.com'}>
-                    smallcase
+                <div className="text-gray-600 dark:text-gray-400 text-lg flex items-center">
+                  <p className="mr-2">I work as a software engineer at </p>
+                  <ExternalLink
+                    className="relative inline-flex items-center mr-8"
+                    href={'https://smallcase.com'}
+                  >
+                    <Image
+                      src="/logos/logo-mark.svg"
+                      alt="smallcase logo"
+                      width="20px"
+                      height="22px"
+                      className="block"
+                    />{' '}
+                    <p className="ml-2">smallcase</p>
                   </ExternalLink>{' '}
                 </div>
               </span>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
-                I love to develop{' '}
+                I have a passion for,{' '}
                 <span
                   className={clsx(
                     redGradient,
                     'transition-transform duration-500 ease-in-out hover:duration-300'
                   )}
                 >
-                  best in class apps
+                  creating top-notch apps,{' '}
                 </span>
-                <span>, obsessed with designing</span> {'\n'}
+                <span>an unwavering focus on </span> {'\n'}
                 <span
                   className={clsx(
                     'bg-gradient-to-r from-green-500 to-blue-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-cyan-400 dark:to-green-500',
                     'after:bg-gradient-to-r'
                   )}
                 >
-                  fluid interfaces
+                  crafting seamless interfaces{' '}
                 </span>
-                , and{' '}
+                and a deeply ingrained{' '}
                 <span className="group relative">
                   <span
                     className={clsx(
@@ -72,10 +78,9 @@ export default function Home({ videos }) {
                     )}
                   ></span>
                   <span className="relative bg-gradient-to-r from-blue-500 to-purple-400 bg-clip-text text-transparent">
-                    perfectionist
+                    desire for perfection.
                   </span>
                 </span>{' '}
-                at heart.
               </p>
             </div>
 
