@@ -32,20 +32,18 @@ export default function Home({ videos }) {
             <div className="space-y-3 mt-2">
               <span className="inline-flex">
                 <div className="text-gray-600 dark:text-gray-400 text-lg flex items-center">
-                  <p className="mr-2">I work as a software engineer at </p>
-                  <ExternalLink
-                    className="relative inline-flex items-center mr-8"
-                    href={'https://smallcase.com'}
-                  >
-                    <Image
-                      src="/logos/logo-mark.svg"
-                      alt="smallcase logo"
-                      width="20px"
-                      height="22px"
-                      className="block"
-                    />{' '}
-                    <p className="ml-2">smallcase</p>
-                  </ExternalLink>{' '}
+                  <div className="flex items-center">
+                    <p className="whitespace-nowrap">
+                      I work at{' '}
+                      <ExternalLink
+                        className="relative inline-flex items-center shrink-0 text-gray-900 dark:text-gray-200"
+                        href={'https://smallcase.com'}
+                      >
+                        smallcase
+                      </ExternalLink>{' '}
+                      as a software engineer
+                    </p>
+                  </div>
                 </div>
               </span>
               <p className="text-gray-600 dark:text-gray-400 text-lg">
@@ -119,8 +117,8 @@ export default function Home({ videos }) {
               alt="Omkar Kulkarni"
               height={176}
               width={176}
-              src="/avatar.png"
-              className="rounded-full "
+              src="/avatar.JPG"
+              className="rounded-full object-cover object-top pointer-events-none"
             />
           </div>
         </div>

@@ -41,7 +41,7 @@ export default function Footer() {
             height="70px"
             objectFit="contain"
             priority={true}
-            className="transform -rotate-6 dark:invert"
+            className="transform -rotate-6 dark:invert pointer-events-none"
             alt="My Signature"
           />
         </div>

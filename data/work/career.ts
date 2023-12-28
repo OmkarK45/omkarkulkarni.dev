@@ -7,13 +7,25 @@ export type Career = {
   logo: string;
 };
 
+import { differenceInYears, differenceInMonths, subYears } from 'date-fns';
+
+function calculateDifference(startDate: Date, endDate: Date) {
+  let years = differenceInYears(endDate, startDate);
+  let months = differenceInMonths(subYears(endDate, years), startDate);
+
+  return `${years} years ${months} months`;
+}
+
 export const career: Array<Career> = [
   {
     title: 'smallcase',
     description:
-      'I work as a SDE-I at smallcase. smallcase enables you to invest in ideas rather than in stocks based on market capitalisation.',
+      'I work as a SDE 1 in the Experience team at smallcase. My team focuses on shipping new features on the smallcase app (over 1M+ downloads) and smallcase.com. I work with React Native, TypeScript & Next.JS',
 
-    time: 'June 2022 - Present • Full time',
+    time: `June 2022 - Present • Full time • ${calculateDifference(
+      new Date('2022-06-06'),
+      new Date(Date.now())
+    )}`,
     type: 'SDE 1',
     url: 'https://smallcase.com/',
     logo: '/static/images/smallcase.png'
@@ -21,7 +33,7 @@ export const career: Array<Career> = [
   {
     title: 'neend.app',
     description:
-      'During my internship, I had the opportunity to work on a fascinating problem statement that aimed to address insomnia issues among the Indian population. I was fortunate to collaborate closely with the founder and product manager to gain a comprehensive understanding of the product requirements. One of the most exciting aspects of my internship was the chance to learn React Native from scratch, as it was directly relevant to the project I was working on.',
+      'During my internship, I was directly involved in shipping different features for the neend mobile app. I learnt React Native and its usage in enterprise level applications.',
 
     time: 'Dec 2021 - May 2022 • 6 months',
     type: 'Frontend Development Intern',

@@ -21,14 +21,14 @@ const CareerCard = ({
             aria-hidden="true"
           />
         )}
-        <div className="relative flex items-start md:space-x-3">
+        <div className="relative flex-col md:flex md:flex-row items-start md:space-x-3">
           <img
-            className="items-center justify-center hidden w-6 h-6 rounded-full md:flex md:w-10 md:h-10"
+            className="items-center justify-center mb-4 w-8 h-8 rounded-full md:flex md:w-10 md:h-10"
             src={logo}
             alt="career"
           />
           <div className="w-full">
-            <div className="flex items-center justify-between">
+            <div className="flex-col items-center justify-between">
               <ExternalLink
                 href={url}
                 className="flex flex-col md:flex-row space-y-1 md:space-y-0"
@@ -37,9 +37,9 @@ const CareerCard = ({
                   {type}
                 </span>
               </ExternalLink>
-              <p className="text-sm text-secondary text-gray-500">{time}</p>
+              <p className="text-gray-500 text-sm mt-2 md:mt-0">{title}</p>
             </div>
-            <p className="text-gray-500 text-sm mt-1 md:mt-0">{title}</p>
+            <p className="text-sm text-secondary text-gray-500">{time}</p>
             <p className="mb-1.5 mt-2 prose text-gray-600 dark:text-gray-300">
               {description}
             </p>
