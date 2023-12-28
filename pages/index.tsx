@@ -113,12 +113,10 @@ export default function Home({ videos }) {
             </div>
           </div>
           <div className="w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto">
-            <Image
+            <img
+              src="/avatar.jpg"
               alt="Omkar Kulkarni"
-              height={176}
-              width={176}
-              src="/avatar.JPG"
-              className="rounded-full object-cover object-top pointer-events-none"
+              className="aspect-1 rounded-full object-cover object-top pointer-events-none"
             />
           </div>
         </div>
