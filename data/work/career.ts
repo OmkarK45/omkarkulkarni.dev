@@ -20,13 +20,13 @@ export const career: Array<Career> = [
   {
     title: 'smallcase',
     description:
-      'I work as a SDE 1 in the Experience team at smallcase. My team focuses on shipping new features on the smallcase app (over 1M+ downloads) and smallcase.com. I work with React Native, TypeScript & Next.JS',
+      'I work as a SDE 2 in the Experience team at smallcase. My team focuses on shipping new features on the smallcase app (over 50,00,000+ downloads) and smallcase.com. I work with React Native, TypeScript & Next.JS',
 
     time: `June 2022 - Present • Full time • ${calculateDifference(
       new Date('2022-06-06'),
       new Date(Date.now())
     )}`,
-    type: 'SDE 1',
+    type: 'SDE 2',
     url: 'https://smallcase.com/',
     logo: '/static/images/smallcase.png'
   },
