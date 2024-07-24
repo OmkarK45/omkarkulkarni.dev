@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import fetcher from 'lib/fetcher';
 import { Views } from 'lib/types';
+import { trackEvent } from 'lib/analytics';
 
 export default function BlogPostCard({ title, slug, gradient }) {
   const { data } = useSWR<Views>(`/api/views/${slug}`, fetcher);
@@ -12,6 +13,12 @@ export default function BlogPostCard({ title, slug, gradient }) {
   return (
     <Link href={`/blog/${slug}`}>
       <a
+        onClick={() =>
+          trackEvent('Clicked on blog post', {
+            title,
+            slug
+          })
+        }
         className={cn(
           ' animate-scale',
           'rounded-xl w-full md:w-1/3 bg-gradient-to-r p-1',
