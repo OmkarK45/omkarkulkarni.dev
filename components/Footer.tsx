@@ -5,6 +5,7 @@ import { HiHeart } from 'react-icons/hi';
 import NowPlaying from 'components/NowPlaying';
 import clsx from 'clsx';
 import React from 'react';
+import { trackEvent } from 'lib/analytics';
 
 export const ExternalLink = ({
   href,
@@ -16,6 +17,11 @@ export const ExternalLink = ({
   className?: string;
 }) => (
   <a
+    onClick={() =>
+      trackEvent('Clicked external link', {
+        href
+      })
+    }
     className={clsx(
       'text-gray-500 hover:text-gray-600 transition cursor-newtab',
       className
@@ -63,16 +69,27 @@ export default function Footer() {
         </div>
         <div className="flex flex-col space-y-4">
           <Link href="/uses">
-            <a className="text-gray-500 hover:text-gray-600 transition">Uses</a>
+            <a
+              onClick={() => trackEvent('Clicked uses CTA', {})}
+              className="text-gray-500 hover:text-gray-600 transition"
+            >
+              Uses
+            </a>
           </Link>
 
           <Link href="/snippets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+            <a
+              onClick={() => trackEvent('Clicked snippets CTA', {})}
+              className="text-gray-500 hover:text-gray-600 transition"
+            >
               Snippets
             </a>
           </Link>
           <Link href="/tweets">
-            <a className="text-gray-500 hover:text-gray-600 transition">
+            <a
+              onClick={() => trackEvent('Clicked tweets CTA', {})}
+              className="text-gray-500 hover:text-gray-600 transition"
+            >
               Tweets
             </a>
           </Link>

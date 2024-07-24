@@ -11,6 +11,7 @@ import { GradientBar } from './GradientBar';
 import { ImCommand } from 'react-icons/im';
 import { useKBar } from 'kbar';
 import clsx from 'clsx';
+import { trackEvent } from 'lib/analytics';
 
 function NavItem({
   href,
@@ -56,7 +57,7 @@ export default function Container(props) {
   const meta = {
     title: 'Omkar Kulkarni – Developer and Web Technologies enthusiast.',
     description: `Full-stack developer, JavaScript enthusiast. I bring ideas to reality through code.`,
-    image: 'https://omkarkulkarni.vercel.app/static/images/banner.png',
+    image: 'https://omkarkulkarni.tech/static/images/banner.png',
     type: 'website',
     ...customMeta
   };
@@ -69,11 +70,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://omkarkulkarni.vercel.app${router.asPath}`}
+          content={`https://omkarkulkarni.tech${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://omkarkulkarni.vercel.app${router.asPath}`}
+          href={`https://omkarkulkarni.tech${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Omakr Kulkarni" />
@@ -108,7 +109,10 @@ export default function Container(props) {
               aria-label="Toggle Command Palette"
               type="button"
               className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-              onClick={query.toggle}
+              onClick={() => {
+                trackEvent('Clicked command palette', {});
+                query.toggle;
+              }}
             >
               <ImCommand />
             </button>
@@ -117,9 +121,10 @@ export default function Container(props) {
               aria-label="Toggle Dark Mode"
               type="button"
               className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
-              onClick={() =>
-                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-              }
+              onClick={() => {
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+                trackEvent('Clicked dark mode', {});
+              }}
             >
               {mounted && (
                 <svg

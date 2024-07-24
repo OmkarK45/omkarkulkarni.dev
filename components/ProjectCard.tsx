@@ -10,6 +10,7 @@ import {
 } from 'react-icons/si';
 import cn from 'classnames';
 import Link from 'next/link';
+import { trackEvent } from 'lib/analytics';
 
 const STACK_TO_ICON = {
   react: SiReact,
@@ -42,7 +43,15 @@ export default function ProjectCard({
 
   return (
     <Link href={href} passHref aria-label={title}>
-      <a className="mb-4 block w-full animate-scale" href={href}>
+      <a
+        onClick={() =>
+          trackEvent('Clicked project card', {
+            title
+          })
+        }
+        className="mb-4 block w-full animate-scale"
+        href={href}
+      >
         <div className="flex items-center justify-between border border-gray-200 dark:border-gray-800 rounded p-4">
           <div className="flex items-center">
             <div

@@ -24,7 +24,7 @@ export default function ProjectLayout({
     <Container
       title={`${project.title} – Omkar Kulkarni`}
       description={project.description}
-      image={`https://omkarkulkarni.vercel.app${project.image}`}
+      image={`https://omkarkulkarni.tech${project.image}`}
       date={project.publishedAt}
       type="article"
     >

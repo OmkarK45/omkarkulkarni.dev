@@ -5,6 +5,7 @@ import { SiSpotify } from 'react-icons/si';
 
 import fetcher from 'lib/fetcher';
 import { NowPlayingSong } from 'lib/types';
+import { trackEvent } from 'lib/analytics';
 
 function AnimatedBars() {
   useEffect(() => {
@@ -93,7 +94,15 @@ export default function NowPlaying() {
           )}
         </div>
 
-        <a href={data?.songUrl}>
+        <a
+          onClick={() =>
+            trackEvent('Clicked on now playing', {
+              song: data?.title,
+              artist: data?.artist
+            })
+          }
+          href={data?.songUrl}
+        >
           <div className="flex-1 w-full">
             <p className="font-medium text-black dark:text-gray-100 truncate">
               {data?.isPlaying ? data.title : 'Not Listening'}

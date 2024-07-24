@@ -17,6 +17,7 @@ import { Career, career } from 'data/work/career';
 import CareerCard from 'components/CareerCard';
 import { ExternalLink } from 'components/Footer';
 import clsx from 'clsx';
+import { trackEvent } from 'lib/analytics';
 
 export default function Home({ videos }) {
   const redGradient =
@@ -142,7 +143,10 @@ export default function Home({ videos }) {
           />
         </div>
         <Link href="/blog">
-          <a className="group mt-8 text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200">
+          <a
+            onClick={() => trackEvent('Clicked all blog CTA', {})}
+            className="group mt-8 text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+          >
             Explore all blogs{' '}
             <span
               aria-hidden="true"
@@ -186,7 +190,10 @@ export default function Home({ videos }) {
           />
         </motion.ul>
         <Link href="/projects">
-          <a className="group text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200">
+          <a
+            onClick={() => trackEvent('Clicked all projects CTA', {})}
+            className="group text-gray-600 dark:text-gray-400 hover:text-gray-600 transition ease-in-out duration-200"
+          >
             See all projects{' '}
             <span
               aria-hidden="true"
