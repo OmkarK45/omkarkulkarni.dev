@@ -1,25 +1,27 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import * as Fathom from 'fathom-client';
+
+export const trackEvent = (event_name, props) => {
+  try {
+    if ((window as any).mixpanel) {
+      (window as any).mixpanel.track(event_name, props);
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 export const useAnalytics = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      Fathom.load(process.env.NEXT_PUBLIC_FATHOM_SITE_ID, {
-        includedDomains: ['leerob.io']
-      });
-    }
-
-    function onRouteChangeComplete() {
-      Fathom.trackPageview();
-    }
-
-    router.events.on('routeChangeComplete', onRouteChangeComplete);
-
+    const handleRouteChange = (url) => {
+      //Send track event when new pages is loaded
+      trackEvent('Viewed Page', { url });
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
-      router.events.off('routeChangeComplete', onRouteChangeComplete);
+      router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
 };

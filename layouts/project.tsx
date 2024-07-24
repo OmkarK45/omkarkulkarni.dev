@@ -12,7 +12,7 @@ import { BgAnimation } from 'components/BgAnimation';
 import { BlurImage } from 'components/BlurImage';
 
 const editUrl = (slug) =>
-  `https://github.com/omkark45/leerob.io/edit/main/data/blog/${slug}.mdx`;
+  `https://github.com/omkark45/omkarkulkarni.dev/edit/main/data/blog/${slug}.mdx`;
 
 export default function ProjectLayout({
   project,
