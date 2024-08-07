@@ -36,7 +36,8 @@
     "swr": "1.0.1",
     "tailwindcss": "^3.0.23",
     "unsplash-js": "6.3.0",
-    "use-delayed-render": "^0.0.7"
+    "use-delayed-render": "^0.0.7",
+    "classnames": "2.5.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.34",
