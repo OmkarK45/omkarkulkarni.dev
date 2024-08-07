@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useAnalytics();
 
   return (
-    <SessionProvider session={pageProps?.session}>
+    <SessionProvider session={pageProps.session}>
       <KBarProvider
         actions={actions}
         options={{

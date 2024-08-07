@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { getSession } from 'next-auth/react';
 import prisma from 'lib/prisma';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '../auth/[...nextauth]';
 
 export default async function handler(
   req: NextApiRequest,
@@ -24,7 +25,7 @@ export default async function handler(
     );
   }
 
-  const session = await getSession({ req });
+  const session = await getServerSession(req, res, authOptions);
   const { name } = session.user;
 
   if (!session) {
@@ -36,7 +37,8 @@ export default async function handler(
       data: {
         body: (req.body.body || '').slice(0, 500),
         created_by: name,
-        avatar_url: session.user.image
+        avatar_url: session?.user?.image ?? 'N/A',
+        email: session?.user?.email ?? 'N/A'
       }
     });
 

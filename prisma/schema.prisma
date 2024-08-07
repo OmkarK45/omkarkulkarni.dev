@@ -16,6 +16,7 @@ model guestbook {
   created_at DateTime @default(now())
   updated_at DateTime @default(now())
   avatar_url String   @db.VarChar(256)
+  email      String?   @unique @db.VarChar(256)
 }
 
 model views {
