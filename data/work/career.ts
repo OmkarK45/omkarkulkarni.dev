@@ -26,7 +26,7 @@ export const career: Array<Career> = [
       new Date('2022-06-06'),
       new Date(Date.now())
     )}`,
-    type: 'SDE 2',
+    type: 'SDE',
     url: 'https://smallcase.com/',
     logo: '/static/images/smallcase.png'
   },

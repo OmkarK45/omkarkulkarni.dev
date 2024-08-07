@@ -1,4 +1,4 @@
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { useLiveReload, useMDXComponent } from 'next-contentlayer/hooks';
 import { getTweets } from 'lib/twitter';
 import components from 'components/MDXComponents';
 import BlogLayout from 'layouts/blog';
@@ -12,6 +12,8 @@ export default function Post({ post, tweets }: { post: Blog; tweets: any[] }) {
     const tweet = tweets.find((tweet) => tweet.id === id);
     return <Tweet {...tweet} />;
   };
+
+  useLiveReload();
 
   return (
     <BlogLayout post={post}>

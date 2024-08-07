@@ -24,7 +24,7 @@ export default async function handler(
   }
 
   const session = await getSession({ req });
-  const { email, name } = session.user;
+  const { name } = session.user;
 
   if (!session) {
     return res.status(403).send('Unauthorized');
@@ -33,9 +33,9 @@ export default async function handler(
   if (req.method === 'POST') {
     const newEntry = await prisma.guestbook.create({
       data: {
-        email,
         body: (req.body.body || '').slice(0, 500),
-        created_by: name
+        created_by: name,
+        avatar_url: session.user.image
       }
     });
 

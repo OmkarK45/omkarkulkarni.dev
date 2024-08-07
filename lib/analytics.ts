@@ -3,8 +3,10 @@ import { useEffect } from 'react';
 
 export const trackEvent = (event_name, props) => {
   try {
-    if ((window as any).mixpanel) {
-      (window as any).mixpanel.track(event_name, props);
+    if (process.env.NODE_ENV === 'production') {
+      if ((window as any).mixpanel) {
+        (window as any).mixpanel.track(event_name, props);
+      }
     }
   } catch (e) {
     console.log(e);

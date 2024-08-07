@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
+    "@mdx-js/mdx": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
     "@prisma/client": "^3.4.1",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
@@ -20,6 +22,7 @@
     "fathom-client": "3.2.0",
     "googleapis": "48.0.0",
     "kbar": "^0.1.0-beta.33",
+    "mdx-embed": "^1.1.2",
     "motion": "^10.4.0",
     "next": "^12.0.3",
     "next-auth": "4.0.0-beta.2",

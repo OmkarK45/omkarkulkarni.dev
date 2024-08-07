@@ -14,6 +14,7 @@ import { BlurImage } from 'components/BlurImage';
 import React from 'react';
 import { LightBoxImage } from './LightboxImage';
 import clsx from 'clsx';
+import { Snack } from 'mdx-embed/dist/components/snack';
 
 export function Pre(props: React.ComponentPropsWithRef<'pre'>) {
   return (
@@ -82,7 +83,8 @@ const MDXComponents = {
   Split,
   LightBoxImage,
   BlurImage,
-  pre: Pre
+  pre: Pre,
+  Snack
 };
 
 export default MDXComponents;

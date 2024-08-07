@@ -20,6 +20,11 @@ export default function Document(props) {
           crossOrigin=""
         />
         <link
+          rel="preconnect"
+          href="https://snack.expo.io/embed.js"
+          crossOrigin=""
+        />
+        <link
           href="/static/favicons/apple-touch-icon.png"
           rel="apple-touch-icon"
           sizes="180x180"
