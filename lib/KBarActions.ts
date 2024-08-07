@@ -69,17 +69,6 @@ export const actions: Array<Action> = [
     icon: HiOutlineSparkles
   },
   {
-    id: 'dashboard',
-    name: 'Dashboard',
-    shortcut: ['d'],
-    keywords: 'dashboard spotify songs',
-    perform: () => router.push('/dashboard'),
-    section: SECTIONS.goto,
-    subtitle:
-      "Checkout my Top 10 Spotify® tracks. Song that I'm currently listening",
-    icon: HiOutlineCollection
-  },
-  {
     id: 'snippets',
     name: 'Snippets',
     shortcut: ['s'],
