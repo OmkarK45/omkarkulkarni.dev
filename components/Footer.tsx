@@ -6,6 +6,7 @@ import NowPlaying from 'components/NowPlaying';
 import clsx from 'clsx';
 import React from 'react';
 import { trackEvent } from 'lib/analytics';
+import LastUserLocation from './LastVisitor';
 
 export const ExternalLink = ({
   href,
@@ -95,9 +96,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <p className="text-gray-500 inline-flex items-center">
-        Original Portfolio by Lee Robinson.
-      </p>
+      <LastUserLocation />
     </footer>
   );
 }

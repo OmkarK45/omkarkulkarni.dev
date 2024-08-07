@@ -18,8 +18,9 @@ import CareerCard from 'components/CareerCard';
 import { ExternalLink } from 'components/Footer';
 import clsx from 'clsx';
 import { trackEvent } from 'lib/analytics';
+import { GetServerSideProps } from 'next';
 
-export default function Home({ videos }) {
+export default function Home() {
   const redGradient =
     'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
   return (
