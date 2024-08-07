@@ -26,7 +26,7 @@ export default function Home({ videos }) {
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-6">
         <div className="flex flex-col-reverse sm:flex-row items-start">
-          <div className="flex flex-col pr-8">
+          <div className="flex flex-col">
             <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
               Hi, I'm Omkar!
             </h1>
@@ -34,7 +34,7 @@ export default function Home({ videos }) {
               <span className="inline-flex">
                 <div className="text-gray-600 dark:text-gray-400 text-lg flex items-center">
                   <div className="flex items-center">
-                    <p className="whitespace-nowrap">
+                    <p>
                       I work at{' '}
                       <ExternalLink
                         className="relative inline-flex items-center shrink-0 text-gray-900 dark:text-gray-200"
@@ -42,7 +42,7 @@ export default function Home({ videos }) {
                       >
                         smallcase
                       </ExternalLink>{' '}
-                      as a software engineer
+                      as a software engineer.
                     </p>
                   </div>
                 </div>

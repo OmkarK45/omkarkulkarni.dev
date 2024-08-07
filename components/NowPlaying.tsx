@@ -104,11 +104,15 @@ export default function NowPlaying() {
           href={data?.songUrl}
         >
           <div className="flex-1 w-full">
-            <p className="font-medium text-black dark:text-gray-100 truncate">
-              {data?.isPlaying ? data.title : 'Not Listening'}
+            <p className="font-medium text-black dark:text-gray-100">
+              {data?.isPlaying
+                ? data.title.substring(0, 50) + '...'
+                : 'Not Listening'}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-300 max-w-max truncate">
-              {data?.isPlaying ? data.artist : 'Spotify'}
+              {data?.isPlaying
+                ? data.artist.substring(0, 50) + '...'
+                : 'Spotify'}
             </p>
           </div>
         </a>
