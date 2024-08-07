@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useRef } from 'react';
 import { format } from 'date-fns';
 import { signIn, useSession } from 'next-auth/react';
@@ -23,8 +24,13 @@ function GuestbookEntry({ entry, user }) {
 
   return (
     <div className="flex flex-col space-y-2">
-      <div className="prose dark:prose-dark w-full">{entry.body}</div>
+      <div className="prose text-lg dark:prose-dark w-full">{entry.body}</div>
       <div className="flex items-center space-x-3">
+        <img
+          alt={`Profile picture of ${entry.name}`}
+          src={entry.avatar_url}
+          className="w-8 h-8 rounded-full"
+        />
         <p className="text-sm text-gray-500">{entry.created_by}</p>
         <span className=" text-gray-200 dark:text-gray-800">/</span>
         <p className="text-sm text-gray-400 dark:text-gray-600">

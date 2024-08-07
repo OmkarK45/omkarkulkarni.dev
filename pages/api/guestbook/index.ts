@@ -18,7 +18,8 @@ export default async function handler(
         id: entry.id.toString(),
         body: entry.body,
         created_by: entry.created_by,
-        updated_at: entry.updated_at
+        updated_at: entry.updated_at,
+        avatar_url: entry.avatar_url
       }))
     );
   }
