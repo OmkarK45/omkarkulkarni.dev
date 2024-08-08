@@ -1,10 +1,12 @@
 import Container from 'components/Container';
 import TopTracks from 'components/TopTracks';
+import { getLocationFromEdge } from 'lib/location';
 import { SiSpotify } from 'react-icons/si';
 
-export default function Dashboard() {
+export default function Dashboard({ location }) {
   return (
     <Container
+      location={location}
       title="Dashboard – Omkar Kulkarni"
       description="My personal dashboard, built with Next.js API routes deployed as serverless functions."
     >
@@ -38,3 +40,5 @@ export default function Dashboard() {
     </Container>
   );
 }
+
+export const getServerSideProps = getLocationFromEdge;

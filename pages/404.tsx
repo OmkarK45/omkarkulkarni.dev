@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
 import Container from 'components/Container';
+import { getLocationFromEdge } from 'lib/location';
 
-export default function NotFound() {
+export default function NotFound({ location }) {
   return (
-    <Container title="404 – Omkar Kulkarni">
+    <Container location={location} title="404 – Omkar Kulkarni">
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           451 – Unavailable For Legal Reasons
@@ -24,3 +25,5 @@ export default function NotFound() {
     </Container>
   );
 }
+
+export const getServerSideProps = getLocationFromEdge;

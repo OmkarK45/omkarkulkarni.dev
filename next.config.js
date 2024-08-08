@@ -10,7 +10,8 @@ module.exports = withContentlayer()({
     domains: [
       'i.scdn.co', // Spotify Album Art
       'pbs.twimg.com', // Twitter Profile Picture,
-      'res.cloudinary.com'
+      'res.cloudinary.com',
+      'flagcdn.com'
     ]
   },
   // webpack: (config, { dev, isServer }) => {

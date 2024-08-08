@@ -18,13 +18,13 @@ import CareerCard from 'components/CareerCard';
 import { ExternalLink } from 'components/Footer';
 import clsx from 'clsx';
 import { trackEvent } from 'lib/analytics';
-import { GetServerSideProps } from 'next';
+import { getLocationFromEdge } from 'lib/location';
 
-export default function Home() {
+export default function Home({ location }) {
   const redGradient =
     'bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 text-transparent bg-clip-text';
   return (
-    <Container>
+    <Container location={location}>
       <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-6">
         <div className="flex flex-col-reverse sm:flex-row items-start">
           <div className="flex flex-col">
@@ -226,9 +226,4 @@ export default function Home() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  console.log('>> SERVER GSSP LOG', JSON.stringify(query));
-  return {
-    props: query
-  };
-};
+export const getServerSideProps = getLocationFromEdge;

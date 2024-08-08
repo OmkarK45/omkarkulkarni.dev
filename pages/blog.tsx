@@ -5,7 +5,6 @@ import BlogPost from 'components/BlogPost';
 import { InferGetStaticPropsType } from 'next';
 import { pick } from 'lib/utils';
 import { allBlogs } from 'contentlayer/generated';
-import { useLiveReload } from 'next-contentlayer/hooks';
 
 export default function Blog({
   posts

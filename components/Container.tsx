@@ -49,7 +49,7 @@ export default function Container(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
 
-  const { children, ...customMeta } = props;
+  const { children, location, ...customMeta } = props;
   const router = useRouter();
 
   const { query } = useKBar();
@@ -156,7 +156,7 @@ export default function Container(props) {
       </div>
       <main id="skip" className="flex flex-col justify-center px-8">
         {children}
-        <Footer />
+        <Footer location={location} />
       </main>
     </div>
   );

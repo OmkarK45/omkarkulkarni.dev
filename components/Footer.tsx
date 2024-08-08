@@ -35,7 +35,14 @@ export const ExternalLink = ({
   </a>
 );
 
-export default function Footer() {
+type Props = {
+  location?: {
+    city?: string;
+    country?: string;
+  };
+};
+
+export default function Footer(props: Props) {
   return (
     <footer className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
@@ -96,7 +103,10 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <LastUserLocation />
+      <LastUserLocation
+        country={props?.location?.country ?? 'Unknown'}
+        city={props?.location?.city ?? 'Unknown'}
+      />
     </footer>
   );
 }
