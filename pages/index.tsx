@@ -225,3 +225,10 @@ export default function Home() {
     </Container>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  console.log('>> SERVER GSSP LOG', JSON.stringify(query));
+  return {
+    props: query
+  };
+};

@@ -10,7 +10,6 @@ import { KBarPortal } from 'components/KBar/KBar';
 import Script from 'next/script';
 import { LocationProvider, useLocation } from 'hooks/useLastVisitorLocation';
 import { GetServerSideProps } from 'next';
-import { useEffect } from 'react';
 
 export default function App({
   Component,
@@ -53,14 +52,3 @@ export default function App({
     </SessionProvider>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const city = req.headers['x-vercel-ip-city'] || 'Unknown City';
-  const country = req.headers['x-vercel-ip-country'] || 'Unknown Country';
-
-  return {
-    props: {
-      location: { city, country }
-    }
-  };
-};

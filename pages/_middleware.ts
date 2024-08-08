@@ -1,7 +1,12 @@
 import type { NextFetchEvent, NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
+export const config = {
+  matcher: '/'
+};
+
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
+  const { geo } = req;
   const ContentSecurityPolicy = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com cdn.mxpnl.com snack.expo.io snack.expo.dev;
@@ -32,5 +37,12 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('X-DNS-Prefetch-Control', 'on');
 
-  return response;
+  const { nextUrl: url } = req;
+  const country = geo.country || 'Unknown Country';
+  const city = geo.city || 'Unknown City';
+
+  url.searchParams.set('country', country);
+  url.searchParams.set('city', city);
+
+  return NextResponse.rewrite(url);
 }
