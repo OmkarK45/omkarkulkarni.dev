@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import Container from 'components/Container';
-import { getLocationFromEdge } from 'lib/location';
 
 export default function NotFound({ location }) {
   return (
@@ -25,5 +24,3 @@ export default function NotFound({ location }) {
     </Container>
   );
 }
-
-export const getServerSideProps = getLocationFromEdge;
