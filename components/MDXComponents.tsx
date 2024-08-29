@@ -96,6 +96,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoPath }) => {
         ref={videoRef}
         className="w-full rounded-md"
         src={videoPath}
+        style={{ marginBottom: '-5px' }}
         autoPlay
         muted
         playsInline
