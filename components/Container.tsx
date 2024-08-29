@@ -57,7 +57,7 @@ export default function Container(props) {
   const meta = {
     title: 'Omkar Kulkarni - UI crafter.',
     description: `UI Crafter. I bring ideas to reality through code.`,
-    image: '/static/images/banner-v2.png',
+    image: '/static/images/banner-v2.jpeg',
     type: 'website',
     ...customMeta
   };
