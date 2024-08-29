@@ -1,0 +1,285 @@
+---
+title: 'Make the search bar less boring'
+publishedAt: '2024-07-24'
+summary: Learn how to build an awesome search bar with an animating placeholder. All done without any third party library!'
+image: '/static/images/make-the-search-bar-less-boring/banner.png'
+---
+
+<BlurImage
+  src="/static/images/make-the-search-bar-less-boring/banner.png"
+  alt="Banner Image"
+  width="2337"
+  height="1025"
+  objectFit="cover"
+/>
+
+The core of any search experience is the search bar. It is one of the most prominent things users
+notice when they land on the search page. Search bars act as the primary way to convert users, helping them discover what they are looking for.
+
+I love to work with animations, they make the UI pop, enjoyable and delightful to use.
+As part of the revamped search experience that we launched recently on the smallcase app, I got to work on the
+search bar.
+
+Traditionally speaking, search bars are built with static placeholders.
+If your company offers multiple products, showcase them directly in the search bar. This allows users to quickly discover what you offer, enhancing visibility and driving engagement.
+
+We can make our search bar less boring by adding placeholders that animate. In this guide we'll take a look at how we can achieve this without using any third party library; all done with just React Native!
+
+## What will we be building?
+
+<VideoPlayer videoPath="/static/images/make-the-search-bar-less-boring/video.mov" />
+
+In this guide, we will be building a search bar component that cycles through provided placeholder copies.
+Each placeholder that we pass, will be animated from bottom to top. This creates a nice effect of
+infinite sliding animation. We will develop it in a way that it can be used anywhere and not just in the search bar!
+How cool!
+
+## Tools we need
+
+1. React Native
+2. Knowledge of React hooks like useEffect, useRef
+
+## Component breakdown
+
+The search bar is fairly simple, a rectangle with a magnifying glass icon on the left.
+Let's go ahead and import the components we need.
+
+```tsx
+import { View, StyleSheet, TouchableDebounce, Text } from 'react-native';
+import { IconSearch } from '@org/your-icons';
+```
+
+```tsx
+<TouchableDebounce onPress={(): void => {}} style={styles.container}>
+  <View style={styles.innerContainer}>
+    <IconSearch color="#81878C" size={16} />
+    <Text style={styles.placeholder}>Search for...</Text>
+  </View>
+</TouchableDebounce>
+```
+
+Let's just add some styles to our search button.
+
+```tsx
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    marginHorizontal: 8,
+  },
+  innerContainer: {
+    display:'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8
+  },
+  placeholder: {
+    color: '#81878C',
+    fontSize: 14,
+  }
+```
+
+## Animating the text
+
+We'd be using the built in `Animated` library to animate the text sliding in and out. The inbuilt library
+provides just enough APIs for us to do this.
+
+Before we start, let's understand the math behind the animation.
+We use two animated values,`currentItemY` and `nextItemY`, to control the vertical position of the current and next placeholder. The `currentItemY` starts at 0 while the `nextItemY` starts at the height of the placeholder.
+
+During each animation cycle, the `currentItemY` is animated to move up by a length that is equal to the
+height of the placeholder, at the same time, the `nextItemY` is animated to move to 0 - which brings it
+into the view!
+
+## The component API
+
+Keeping versatility in mind, we would be implementing the following API for our component.
+
+```ts
+type Props = {
+  items: Array<React.ReactNode>;
+  cycleDuration?: number;
+  renderItem: (item: React.ReactNode) => React.ReactNode;
+};
+```
+
+- `items` - An array of items that will be rendered as placeholders
+- `cycleDuration` - The duration of the animation cycle in milliseconds. Defaults to `800`
+- `renderItem` - A function that takes in an item and returns a React node. This is used to render the placeholders. It is also versatile enough to enable consumers to render any kind of content.
+
+Let's go ahead and create the component's basics state management
+
+```tsx
+const ANIMATION_DELAY = 800;
+
+const ItemCycler = (props: Props): JSX.Element | null => {
+  const [height, setHeight] = useState(0);
+
+  const [currentItemIndex, setCurrentItemIndex] = useState(() => height === 0 ? -1 : 0);
+
+  const nextItemIndex = (currentItemIndex + 1) % props.items.length;
+
+  const currentItemY = useRef(new Animated.Value(0));
+  const nextItemY = useRef(new Animated.Value(height));
+```
+
+We need basic states like the placeholder height and a pointer to the current item in view, tracked by `currentItemIndex`. The `nextItemIndex` is derived from the current index, and we cycle through the items by intersecting it with the total length.
+
+The constant `ANIMATION_DELAY` is set to 800ms. You can tweak it if you want faster/slower animation.
+
+As discussed earlier, we maintain two animated values, `currentItemY` and `nextItemY`.
+
+## Elephant in the room
+
+Translating an amount equivalent to the height of an element is really easy on the web.
+But in the realm of React Native, it is not really that straightforward. This is because React Native (at the time of writing)
+does not support percentage translates. So, we have to measure the height of the content before attempting to translate it.
+
+We'll use an invisible view to calculate
+the height of a placeholder or rather, the item that we are going to render. This height is the core of our
+animation logic, it is essentially how we calculate the transforms for the animation.
+
+We'll create an `onLayoutHandler` function, which measures the height of the placeholder
+once the component is mounted. We make sure to run this only when height is unavailable as frequent calculation is not required.
+
+```tsx
+import { LayoutChangeEvent, useCallback } from 'react';
+```
+
+```tsx
+const onLayoutHandler = useCallback(
+  (e: LayoutChangeEvent): void => {
+    if (height === 0) {
+      setHeight(e.nativeEvent.layout.height);
+    }
+  },
+  [height]
+);
+```
+
+Now that we have that setup, we can move to the implementation of the markup.
+We'll require a few dependencies.
+
+```tsx
+import React, { useRef, useState, useEffect } from 'react';
+import { Animated, View, StyleSheet, Text } from 'react-native';
+```
+
+```tsx
+<View style={styles.mainContainer}>
+  <View style={[styles.innerContainer]}>
+    <View style={[styles.container, { height }]}>
+      {/* The current item */}
+      <Animated.View
+        style={[
+          styles.itemContainer,
+          { transform: [{ translateY: currentItemY.current }] }
+        ]}
+      >
+        {props.renderItem(props.items[currentItemIndex])}
+      </Animated.View>
+      {/* The next item */}
+      <Animated.View
+        style={[
+          styles.itemContainer,
+          { transform: [{ translateY: nextItemY.current }] }
+        ]}
+      >
+        {props.renderItem(props.items[nextItemIndex])}
+      </Animated.View>
+    </View>
+  </View>
+
+  {/* Our measure container! */}
+  <View onLayout={onLayoutHandler} style={styles.measureContainer}>
+    {props.renderItem(props.items[0])}
+  </View>
+</View>
+```
+
+The markup contains two animated views, one for the current item in view and the other for the next item.
+Both of these animated views are wired up to their respective transform animated values.
+There’s also a measuring container that renders the 1st element of the array, we use it to derive the height of our overall placeholder.
+
+So if you've followed up till now, have a cookie. 🍪 Great job! 😎
+
+Now we move to the next step, which is implementing the animation logic.
+
+## Animation Logic
+
+You see, the animation here really is a sequence of smaller steps.
+This sequence goes like this:
+
+1. The current item is animated to move up by the height of the placeholder.
+2. We wait for some time, so that the user can read the placeholder.
+   and finally,
+3. The next item is animated to move up by the height of the placeholder.
+
+Notice how the current element is moved up and at the same time, the next element is brought back into the view.
+These animations are running in parallel and so for this, we can use the `Animated.parallel` API. And for sequencing it all together, we can use the `Animated.sequence` API.
+
+We'll start the animation on the mount of the component so for that we'll need the `useEffect` hook.
+
+```tsx
+useEffect(() => {
+  const animationSequence = Animated.sequence([
+    // We wait for the user to be done with the animation
+    Animated.delay(props.cycleDuration ?? ANIMATION_DELAY),
+    //  Move the current item up
+    Animated.parallel([
+      Animated.timing(currentItemY.current, {
+        toValue: height * -1,
+        duration: 500,
+        useNativeDriver: true,
+        easing: Easing.inOut(Easing.cubic)
+      }),
+      // Move the next item into the view
+      Animated.timing(nextItemY.current, {
+        toValue: 0,
+        duration: 500,
+        useNativeDriver: true,
+        easing: Easing.inOut(Easing.cubic)
+      })
+    ])
+  ]);
+
+  // We start the animation only when the height is measured
+  if (height > 0) {
+    animationSequence.start(() => {
+      currentItemY.current.setValue(0);
+      nextItemY.current.setValue(height);
+      setCurrentItemIndex(nextItemIndex);
+    });
+  }
+}, [height, nextItemIndex, props.cycleDuration]);
+```
+
+Notice that we've passed a callback to the `animationSequence.start` method, this callback is called
+when the animation is done, but since we want a cycle effect, we just reset the Animated values back to their
+defaults and sets the current item index to the next item index. This ensures a seamless cycle.
+
+The easing effect is up to you to tweak, We use `Easing.inOut(Easing.cubic)`. Play around and see what you like!
+
+## Code and Snack
+
+Here's the full Expo Snack for this guide.
+
+<Snack snackId="@omkar_k45/9032c4" theme="dark" />
+
+Visit the [GitHub Repo](https://github.com/OmkarK45/react-native-item-cycler) for the full source code.
+
+Follow me on [X](https://x.com/omkar_k45) for more updates!
+
+Search your next investment on the smallcase app : [Download](https://smlc.se/m4Ml6)
+
+## Special Thanks
+
+- [Praveen Puglia](https://x.com/praveenpuglia) For reviewing this blog
+- [Abhishek Das](https://x.com/wholetthedasout) For crafting this animation
+- [Ananthu Kanive](https://x.com/ananthu_tweetin) For few code suggestions
+
+And you for reading this far!
+
+Hope you enjoyed this guide and I'll see you in the next one 👋

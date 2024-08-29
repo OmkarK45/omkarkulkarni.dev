@@ -10,8 +10,9 @@ import ImageWithTheme from 'components/ImageWithTheme';
 import SplitImage from 'components/SplitImage';
 import { Split } from 'components/SplitImage';
 import { BlurImage } from 'components/BlurImage';
+import { MdOutlineReplay } from 'react-icons/md';
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { LightBoxImage } from './LightboxImage';
 import clsx from 'clsx';
 import { Snack } from 'mdx-embed/dist/components/snack';
@@ -69,6 +70,51 @@ function Code(props: React.ComponentProps<'code'>) {
   );
 }
 
+type VideoPlayerProps = {
+  videoPath: string;
+};
+
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoPath }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleReplay = () => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setIsPlaying(false);
+  };
+
+  return (
+    <div className="relative">
+      <video
+        ref={videoRef}
+        className="w-full rounded-md"
+        src={videoPath}
+        autoPlay
+        muted
+        playsInline
+        controls={false}
+        onEnded={handleVideoEnd}
+      />
+
+      {!isPlaying && (
+        <button
+          onClick={handleReplay}
+          className="gap-1 absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg font-semibold"
+        >
+          <MdOutlineReplay /> Replay
+        </button>
+      )}
+    </div>
+  );
+};
+
 const MDXComponents = {
   Image: RoundedImage,
   ImageWithTheme,
@@ -84,7 +130,8 @@ const MDXComponents = {
   LightBoxImage,
   BlurImage,
   pre: Pre,
-  Snack
+  Snack,
+  VideoPlayer
 };
 
 export default MDXComponents;
