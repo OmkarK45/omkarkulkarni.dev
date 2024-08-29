@@ -55,8 +55,8 @@ export default function Container(props) {
   const { query } = useKBar();
 
   const meta = {
-    title: 'Omkar Kulkarni – Developer and Web Technologies enthusiast.',
-    description: `Full-stack developer, JavaScript enthusiast. I bring ideas to reality through code.`,
+    title: 'Omkar Kulkarni - UI crafter.',
+    description: `UI Crafter. I bring ideas to reality through code.`,
     image: '/static/images/banner-v2.png',
     type: 'website',
     ...customMeta
