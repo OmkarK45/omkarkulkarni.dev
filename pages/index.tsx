@@ -128,8 +128,8 @@ export default function Home({ location }) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
-            title="Getting started with Typescript on the backend with Node.js and Express"
-            slug="getting-started-with-typescript-on-the-backend-with-nodejs-and-express"
+            title="Make the search bar less boring!"
+            slug="make-the-search-bar-less-boring"
             gradient="from-[#D8B4FE] to-[#818CF8]"
           />
           <BlogPostCard
