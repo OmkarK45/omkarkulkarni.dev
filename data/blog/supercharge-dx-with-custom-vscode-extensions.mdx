@@ -1,0 +1,146 @@
+---
+title: 'Supercharge Developer Experience with Custom VSCode Extensions'
+publishedAt: '2024-10-22'
+summary: Learn how to leverage custom VSCode extensions to enhance your team's DX by providing instant, in-editor documentation for object maps, configurations, and more.
+image: '/static/images/supercharge-dx-with-custom-vscode-extensions/banner.png'
+---
+
+We've all dealt with code that forces us to jump between files, docs, or configs to understand it.
+It's not a huge problem, but it may slow things down—especially for frequently used code.
+In-house icon libraries, methods, or tokens might not always be covered by JSDoc or types,
+making them tricky to grasp at a glance.
+
+## 1. The Problem.
+
+Imagine your team is working with an extensive icon library, where developers frequently use icons
+across various components. The code might look something like this:
+
+```tsx
+<IconAddUser size={16} />
+```
+
+It may be hard to immediately know what the `AddUser` icon looks like.
+Developers often end up searching the icon library documentation to check the visual appearance of each icon.
+This can interrupts the flow, especially when the icon library is large and complex.
+
+## 2. Sometimes, Speed > Details.
+
+What if, instead of leaving the editor to search for the icon's preview, you could just hover over the
+icon name and instantly see what it looks like?
+With a custom VSCode extension you can:
+
+- Hover over the icon and immediately see what it looks like.
+- Move fast by understanding context without leaving the code.
+
+## 3. Identifying Code Worth Documenting.
+
+While custom hover documentation is great, it's important to identify where it will provide the most value.
+The primary motivation here is to enrich the development environment with the tools
+and features that make life easier for the team.
+
+These are some of the areas that could benefit from custom hover documentation:
+
+- **Visual Aids**: Icon previews, asset previews
+- **Domain Specific Knowledge**: Definitions of finance terms, or a glossary of commonly used terms.
+- **Theme Tokens**: Color token preview, sizing token preview that may not be realized without seeing the docs.
+- **User Roles**: Role-specific configurations, such as a user's permissions or a specific user's settings.
+
+## 4. Writing your first VSCode extension.
+
+### Step 1: Scaffolding a new VSCode extension.
+
+We'll use Yoeman to create a new VSCode extension boilerplate. Run the following command:
+
+```bash
+npx --package yo --package generator-code -- yo code
+```
+
+Choose the option New Extension (TypeScript) and press enter. Open the file `src/extension.ts`.
+and press `F5` to start debugging. This will compile and run the extension in a new VSCode window called
+`Extension Development Host`. Now within this new window, press `Ctrl+Shift+P` to open the command palette.
+Search for the word `Hello` and select the command `Hello World`. You should see the message `Hello World`
+in the bottom right corner of the screen.
+
+### Step 2: Adding your first hover provider.
+
+Let's take an example of the Icon previews. We'll show the icon preview when `<Icon* />` is hovered over.
+
+You can use one of the following strategies to provide icon previews:
+
+- Have your icons hosted somewhere (e.g. in a CDN) that can be accessed by their name. ex. http://your-icon-cdn.com/icon-name.png
+- Detect the usage of icon library in your codebase and render the hovered icon within the hover panel using React/Your framework.
+
+For simplicity, we'll go with the first approach. Add the following code to your `src/extensions.ts` file
+
+```ts
+import * as vscode from 'vscode';
+
+const ICON_REGEX = /<Icon name="(\w+)" \/>/;
+
+export function activate(context: vscode.ExtensionContext) {
+  const hoverProvider = vscode.languages.registerHoverProvider(
+    { language: 'typescriptreact', scheme: 'file' },
+    {
+      provideHover(document, position) {
+        const range = document.getWordRangeAtPosition(position, ICON_REGEX);
+        if (!range) return;
+
+        const hoveredText = document.getText(range);
+        const iconName = hoveredText.match(/name="(\w+)"/)[1];
+
+        const markdown = new vscode.MarkdownString(`
+            <img src="https://your-icon-library-url.com/icons/${iconName}.png" width="100" height="100" />
+        `);
+
+        markdown.isTrusted = true;
+
+        return new vscode.Hover(markdown, range);
+      }
+    }
+  );
+
+  context.subscriptions.push(hoverProvider);
+}
+```
+
+Okay, that seems like a lot of code. Let's break it down.
+
+- `vscode.languages.registerHoverProvider`: This is a function that enables a hover provider for a specific language. In our case,
+  we've chosen `typescriptreact` which means the hover provider will be available in `*.tsx` files.
+- `provideHover`: This is one of the callback functions we pass as the second argument to the `registerHoverProvider` function.
+  It lets us access the `document` (the VSCode document object, afterall, VSCode is technically a web app), the `position`
+  is the position at which hover was caused.
+- `context.subscriptions`: This manages the lifecycle of an extension.
+
+You can read more about the `HoverProvider` API [here](https://code.visualstudio.com/api/references/vscode-api#HoverProvider)
+
+Now that we have the idea about the API, let's understand what the code is doing.
+
+- We hover over an `<Icon name="add-user" />` usage, we match it with our regex, and get the icon name, `add-user`.
+- We then create a `MarkdownString` object, which is a special type of string that can be rendered as HTML.
+- We then set the `isTrusted` property to `true` to allow the markdown string to be rendered as HTML. We put the icon link in an `<img />` tag.
+- Finally, we return a `Hover` object with the markdown string and the range of the hovered icon.
+
+This will produce a result that'll look like below
+
+<BlurImage
+  src="/static/images/supercharge-dx-with-custom-vscode-extensions/icon-preview-1.png"
+  alt="Icon Preview"
+  width="1754"
+  height="522"
+  objectFit="cover"
+/>
+
+How cool!
+
+### Step 3: Publishing on VSCode Marketplace
+
+This section is a bit extensive, so not including in the scope of this blog.
+Follow these steps to upload the extension to the marketplace: [VSCode Docs](https://code.visualstudio.com/api/working-with-extensions/publishing-extension#publishing-extensions)
+
+### Conclusion
+
+Hope you've enjoyed reading this blog. You can share suggestions & improvements with me on my [X](https://x.com/omkar_k45) handle.
+Read my [previous blog](https://omkarkulkarni.vercel.app/blog/make-the-search-bar-less-boring) where I talk about making the search bar more fun and engaging!
+
+Happy coding 😎
