@@ -9,7 +9,7 @@ export function KBarFooter() {
   );
 }
 
-function KbdIcon({ label }: { label: string }) {
+export function KbdIcon({ label }: { label: string }) {
   return (
     <kbd
       className={clsx(

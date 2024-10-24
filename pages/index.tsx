@@ -128,14 +128,14 @@ export default function Home({ location }) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <BlogPostCard
+            title="Supercharge DX with Custom VSCode Extensions"
+            slug="supercharge-dx-with-custom-vscode-extensions"
+            gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
+          />
+          <BlogPostCard
             title="Make the search bar less boring!"
             slug="make-the-search-bar-less-boring"
             gradient="from-[#D8B4FE] to-[#818CF8]"
-          />
-          <BlogPostCard
-            title="Type-safe GraphQL Server with Pothos (Formerly GiraphQL)"
-            slug="type-safe-graphql-server-with-pothos-formerly-giraphql"
-            gradient="from-[#FDE68A] via-[#FCA5A5] to-[#FECACA]"
           />
           <BlogPostCard
             title="Reusable form component in react using React Hook Form 🎣 and Zod 🛡"

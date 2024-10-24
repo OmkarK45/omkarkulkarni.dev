@@ -16,6 +16,7 @@ import React, { useRef, useState } from 'react';
 import { LightBoxImage } from './LightboxImage';
 import clsx from 'clsx';
 import { Snack } from 'mdx-embed/dist/components/snack';
+import { KbdIcon } from './KBar/KBarFooter';
 
 export function Pre(props: React.ComponentPropsWithRef<'pre'>) {
   return (
@@ -132,7 +133,8 @@ const MDXComponents = {
   BlurImage,
   pre: Pre,
   Snack,
-  VideoPlayer
+  VideoPlayer,
+  KbdIcon
 };
 
 export default MDXComponents;
