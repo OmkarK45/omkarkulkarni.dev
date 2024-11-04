@@ -70,11 +70,11 @@ export default function Container(props) {
         <meta content={meta.description} name="description" />
         <meta
           property="og:url"
-          content={`https://omkarkulkarni.tech${router.asPath}`}
+          content={`https://omkarkulkarni.vercel.app${router.asPath}`}
         />
         <link
           rel="canonical"
-          href={`https://omkarkulkarni.tech${router.asPath}`}
+          href={`https://omkarkulkarni.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="Omakr Kulkarni" />

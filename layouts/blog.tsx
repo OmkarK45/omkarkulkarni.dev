@@ -11,7 +11,7 @@ const editUrl = (slug) =>
   `https://github.com/omkark45/omkarkulkarni.dev/edit/main/data/blog/${slug}.mdx`;
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `https://omkarkulkarni.tech/blog/${slug}`
+    `https://omkarkulkarni.vercel.app/blog/${slug}`
   )}`;
 
 export default function BlogLayout({
@@ -22,7 +22,7 @@ export default function BlogLayout({
     <Container
       title={`${post.title} – Omkar Kulkarni`}
       description={post.summary}
-      image={`https://omkarkulkarni.tech${post.image}`}
+      image={`https://omkarkulkarni.vercel.app${post.image}`}
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
