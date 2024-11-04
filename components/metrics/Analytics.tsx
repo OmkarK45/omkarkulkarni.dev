@@ -8,7 +8,7 @@ export default function AnalyticsCard() {
   const { data } = useSWR<Views>('/api/views', fetcher);
 
   const pageViews = new Number(data?.total);
-  const link = 'https://omkarkulkarni.tech';
+  const link = 'https://omkarkulkarni.vercel.app';
 
   return (
     <MetricCard

@@ -174,11 +174,11 @@ pre[class*='language-'] {
   white-space: normal;
 }
 .token {
-  font-family: 'MonoLisa', 'consolas';
+  font-family: 'MonoLisa', 'Consolas', 'Courier New', Courier, monospace;
   color: theme('colors.white');
 }
 .code-line {
-  font-family: 'MonoLisa', 'consolas';
+  font-family: 'MonoLisa', 'Consolas', 'Courier New', Courier, monospace;
   color: theme('colors.white');
 }
 .token.comment,
@@ -328,22 +328,21 @@ input[type='email'] {
   font-weight: inherit;
 }
 
-.prose code { 
- @apply border-none
+.prose code {
+  @apply border-none;
 }
-.prose :where(code):not(:where([class~="not-prose"] *))::before{ 
-  content: none!important;
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+  content: none !important;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *))::after{ 
-  content:  none !important;
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: none !important;
 }
-.prose p code span { 
-  font-family: 'MonoLisa';
+.prose p code span {
+  font-family: 'MonoLisa', 'Consolas', 'Courier New', Courier, monospace;
   font-size: 12px;
-  @apply bg-gray-200 dark:bg-gray-700 rounded-md -mx-1 my-0.5 px-2 
+  @apply bg-gray-200 dark:bg-gray-700 rounded-md -mx-1 my-0.5 px-2;
 }
-
 
 table {
   display: block;
