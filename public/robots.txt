@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://omkarkulkarni.vercel.app/sitemap.xml
+Sitemap: https://omkarkulkarni.dev/sitemap.xml

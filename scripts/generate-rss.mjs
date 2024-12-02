@@ -5,14 +5,14 @@ import { allBlogs } from 'contentlayer/generated';
 async function generate() {
   const feed = new RSS({
     title: 'Omkar Kulkarni',
-    site_url: 'https://omkarkulkarni.vercel.app',
-    feed_url: 'https://omkarkulkarni.vercel.app/feed.xml'
+    site_url: 'https://omkarkulkarni.dev',
+    feed_url: 'https://omkarkulkarni.dev/feed.xml'
   });
 
   allBlogs.map((post) => {
     feed.item({
       title: post.title,
-      url: `https://omkarkulkarni.vercel.app/blog/${post.slug}`,
+      url: `https://omkarkulkarni.dev/blog/${post.slug}`,
       date: post.publishedAt,
       description: post.summary
     });
